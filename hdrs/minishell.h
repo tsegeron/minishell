@@ -19,4 +19,13 @@
 # include <curses.h>
 # include <term.h>
 
-#endif //MINISHELL_H
+typedef struct s_v
+{
+	int		ac;
+	char	**av;
+	char	**envp;
+}	t_v;
+
+t_v	g_v;
+
+#endif
