@@ -2,7 +2,7 @@ CC			=	gcc
 #-Wall -Wextra -Werror
 FLAGS		=
 #FLAGS_MLX	=	-framework OpenGL -framework AppKit
-OPTFLAGS	=	-O2
+OPTFLAGS	=	-O2 -lreadline
 #BON_FLG0	=	-D BONUS=0
 #BON_FLG1	=	-D BONUS=1
 
@@ -19,14 +19,14 @@ LIB		=	minishell.a
 HDRS	=	minishell.h
 #HDRS_B	=	so_long_b.h
 
-FLDR_S	=	srcs/
+#FLDR_S	=	srcs/
 #FLDR_B	=	srcs_b/
 FLDR_H	=	hdrs/
 
-MAIN	=	main.c
+#MAIN	=
 #MAIN_B	=	checker.c
 
-SRCS	=
+SRCS	=	main.c srcs/ft_strdup.c srcs/ft_strlen.c srcs/ft_strcpy.c srcs/ft_init.c
 
 
 SRC		=	$(addprefix ${FLDR_S},${SRCS})
@@ -54,7 +54,7 @@ _END	=	\e[0m
 			@${CC} ${FLAGS} ${OPTFLAGS} -c -o $@ $<
 
 
-${NAME}: 	${OBJS}
+${NAME}: 	${OBJS} ${MAIN}
 			@${AR} ${LIB} $?
 #			@${MAKE} clean
 			@${CC} ${FLAGS} ${OPTFLAGS} ${MAIN} ${LIB} -o ${NAME}
