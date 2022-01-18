@@ -1,4 +1,4 @@
-#include "../hdrs/minishell.h"
+#include "../../hdrs/minishell.h"
 
 size_t	ft_strcpy(char *str_out, const char *str_in)
 {

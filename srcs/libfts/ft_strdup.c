@@ -1,4 +1,4 @@
-#include "../hdrs/minishell.h"
+#include "../../hdrs/minishell.h"
 
 char	*ft_strdup(const char *str)
 {

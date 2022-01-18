@@ -1,4 +1,18 @@
-#include "../hdrs/minishell.h"
+#include "../../hdrs/minishell.h"
+
+/*	Фунция подсчета указветлей типа (char *) в массиве указателей (char **);
+ *	При возвращении 0 значения выводтися ошибка. Либо (char **), либо (char **)[1] ссылается на NULL;
+ */
+size_t	ft_len_array(char **array)
+{
+	size_t	len;
+
+	len = 0;
+	if (array)
+		while (array[len])
+			len++;
+	return (len);
+}
 
 /*	Функция инициализации массива указателей типа (char *) для парсинга envp SHELL с мака, в наш eBash;
  * 	Возвращет 0 в случае успеха и 1 в случае ошибки;
