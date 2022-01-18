@@ -2,7 +2,7 @@ CC			=	gcc
 #-Wall -Wextra -Werror
 FLAGS		=
 #FLAGS_MLX	=	-framework OpenGL -framework AppKit
-OPTFLAGS	=	-O2 -lreadline
+OPTFLAGS	=	-O2
 #BON_FLG0	=	-D BONUS=0
 #BON_FLG1	=	-D BONUS=1
 
@@ -19,14 +19,18 @@ LIB		=	minishell.a
 HDRS	=	minishell.h
 #HDRS_B	=	so_long_b.h
 
-#FLDR_S	=	srcs/
+FLDR_S	=	srcs/
 #FLDR_B	=	srcs_b/
 FLDR_H	=	hdrs/
 
-#MAIN	=
+MAIN	=	main.c
 #MAIN_B	=	checker.c
 
-SRCS	=	main.c srcs/ft_strdup.c srcs/ft_strlen.c srcs/ft_strcpy.c srcs/ft_init.c
+SRCS	=	libfts/ft_strdup.c libfts/ft_strlen.c libfts/ft_strcpy.c builtins/env.c \
+			libfts/get_next_line.c libfts/ft_strchr.c libfts/ft_strjoin.c libfts/ft_lstadd_back.c \
+			libfts/ft_lstclear.c libfts/ft_lstlast.c libfts/ft_lstnew.c libfts/ft_lstsize.c libfts/ft_calloc.c \
+			libfts/ft_bzero.c libfts/ft_split.c libfts/ft_substr.c ft_pip_exe_fork.c libfts/ft_strchr_count.c
+
 
 
 SRC		=	$(addprefix ${FLDR_S},${SRCS})
@@ -57,7 +61,7 @@ _END	=	\e[0m
 ${NAME}: 	${OBJS} ${MAIN}
 			@${AR} ${LIB} $?
 #			@${MAKE} clean
-			@${CC} ${FLAGS} ${OPTFLAGS} ${MAIN} ${LIB} -o ${NAME}
+			@${CC} ${FLAGS} ${OPTFLAGS} -lreadline ${MAIN} ${LIB} -o ${NAME}
 			@printf "${_GREEN}${READY}${_END}\n"
 
 

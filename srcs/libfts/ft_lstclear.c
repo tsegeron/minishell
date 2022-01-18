@@ -6,30 +6,26 @@
 /*   By: gernesto <gernesto@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 14:11:55 by gernesto          #+#    #+#             */
-/*   Updated: 2021/12/10 19:50:30 by gernesto         ###   ########.fr       */
+/*   Updated: 2022/01/18 18:37:53 by mseastar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../hdrs/minishell.h"
 
-void	ft_lstclear(t_list **lst)
+int	ft_lstclear(t_list **lst)
 {
 	t_list	*tmp;
 	t_list	*prev_ptr;
 
 	if (!lst)
-		return ;
+		return (0);
 	tmp = *lst;
 	while (tmp != NULL)
 	{
 		prev_ptr = tmp->next;
-		tmp->philo_num = 0;
-		tmp->eat_num = 0;
-		tmp->last_meal = 0;
-		tmp->s = NULL;
-		tmp->prev = NULL;
 		free(tmp);
 		tmp = prev_ptr;
 	}
 	*lst = NULL;
+	return (1);
 }
