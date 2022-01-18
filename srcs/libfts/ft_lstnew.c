@@ -12,15 +12,15 @@
 
 #include "../../hdrs/minishell.h"
 
-t_list	*ft_lstnew(int num, t_s *s)
+t_list	*ft_lstnew(char *str)
 {
 	t_list	*list;
 
 	list = (t_list *) ft_calloc(1, sizeof(t_list));
 	if (list)
 	{
-		list->philo_num = num;
-		list->s = s;
+		list->str = str;
+		list->next = NULL;
 	}
 	return (list);
 }
