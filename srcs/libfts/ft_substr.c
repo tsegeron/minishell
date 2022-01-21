@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.c                                              :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gernesto <gernesto@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 12:21:52 by gernesto          #+#    #+#             */
-/*   Updated: 2022/01/21 17:56:38 by gernesto         ###   ########.fr       */
+/*   Created: 2021/10/09 22:11:36 by gernesto          #+#    #+#             */
+/*   Updated: 2021/12/26 03:16:23 by gernesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../hdrs/minishell.h"
 
-int	b_env(char **av)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	t_envp	*envp_head;
+	char			*sub;
+	unsigned int	i;
 
-	if (!g_v.envp)
-		return ((int )write(STDERR_FILENO, "(null)", 6));
-	if (av[1])
+	i = 0;
+	if (!s)
+		return (NULL);
+	if (start > ft_strlen(s) - 1 || len == 0)
+		len = 0;
+	if (len > ft_strlen(s + start))
+		len = ft_strlen(s + start);
+	sub = (char *) malloc (len * sizeof(char) + 1);
+	if (sub)
 	{
-		ft_putstr_fd("env: ", 2);
-		ft_putstr_fd(av[1], 2);
-		ft_putendl_fd(": No such file or directory", 2);
-		return (EXIT_FAILURE);
+		while (i != len && *s)
+		{
+			sub[i] = s[start];
+			i++;
+			start++;
+		}
+		sub[i] = '\0';
 	}
-	envp_head = g_v.envp;
-	while (envp_head)
-	{
-		ft_putstr_fd(envp_head->var, 1);
-		write(1, "=", 1);
-		ft_putendl_fd(envp_head->val, 1);
-		envp_head = envp_head->next;
-	}
-	return (EXIT_SUCCESS);
+	return (sub);
 }

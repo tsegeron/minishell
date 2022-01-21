@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.c                                              :+:      :+:    :+:   */
+/*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gernesto <gernesto@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 12:21:52 by gernesto          #+#    #+#             */
-/*   Updated: 2022/01/21 17:56:38 by gernesto         ###   ########.fr       */
+/*   Created: 2022/01/21 14:17:29 by gernesto          #+#    #+#             */
+/*   Updated: 2022/01/21 14:17:29 by gernesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../hdrs/minishell.h"
 
-int	b_env(char **av)
+int	b_echo(char **av)
 {
-	t_envp	*envp_head;
+	size_t	i;
+	size_t	j;
 
-	if (!g_v.envp)
-		return ((int )write(STDERR_FILENO, "(null)", 6));
-	if (av[1])
+	i = 0;
+	j = 0;
+	if (!ft_strcmp(av[1], "-n"))
 	{
-		ft_putstr_fd("env: ", 2);
-		ft_putstr_fd(av[1], 2);
-		ft_putendl_fd(": No such file or directory", 2);
-		return (EXIT_FAILURE);
+		i++;
+		j++;
 	}
-	envp_head = g_v.envp;
-	while (envp_head)
+	while (av[++i])
 	{
-		ft_putstr_fd(envp_head->var, 1);
-		write(1, "=", 1);
-		ft_putendl_fd(envp_head->val, 1);
-		envp_head = envp_head->next;
+		ft_putstr_fd(av[i], 1);
+		if (av[i + 1])
+			write(1, " ", 1);
 	}
+	if (!j)
+		write(1, "\n", 1);
 	return (EXIT_SUCCESS);
 }

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
-    <generated>
-      <config projectName="minishell" targetName="minishell" />
-    </generated>
+    <generated />
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -13,6 +11,23 @@
   <component name="ChangeListManager">
     <list default="true" id="36195d73-a7f1-4646-84a8-97108960dc7b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hdrs/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/hdrs/minishell.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minishell.a" beforeDir="false" afterPath="$PROJECT_DIR$/minishell.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/builtins/env.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/builtins/env.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/builtins/pwd.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/builtins/pwd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/ft_lst.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_lstadd_back.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_lstadd_back.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_lstnew.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_lstnew.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_strcmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_strcmp.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_strcpy.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_strcpy.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_strdup.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_strdup.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_strlen.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_strlen.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.c" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,9 +37,23 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/srcs/builtins/builtins_handler.c" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/main.c" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/srcs/builtins/cd.c" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/hdrs/minishell.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Makefile" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="23pUAjohQrcTiCiVrbJslFpIlik" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -42,7 +71,14 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/srcs" />
     <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/srcs" />
+      <recent name="$PROJECT_DIR$/srcs/libfts" />
+    </key>
   </component>
   <component name="RunManager" selected="CMake Application.minishell">
     <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
@@ -97,6 +133,11 @@
       <workItem from="1642432881302" duration="3178000" />
       <workItem from="1642495128191" duration="14574000" />
       <workItem from="1642515733624" duration="643000" />
+      <workItem from="1642516792436" duration="10835000" />
+      <workItem from="1642656401388" duration="12473000" />
+      <workItem from="1642673946170" duration="1948000" />
+      <workItem from="1642751886659" duration="18537000" />
+      <workItem from="1642780323801" duration="2000" />
     </task>
     <servers />
   </component>
