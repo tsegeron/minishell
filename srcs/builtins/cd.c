@@ -1,31 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gernesto <gernesto@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 11:10:20 by gernesto          #+#    #+#             */
-/*   Updated: 2022/01/21 19:16:27 by gernesto         ###   ########.fr       */#.fr       */
-=======
+/*   Created: 2022/01/18 20:02:53 by gernesto          #+#    #+#             */
 /*   Updated: 2022/01/21 19:05:25 by gernesto         ###   ########.fr       */
->>>>>>> q
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../hdrs/minishell.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+static int	error_return(char *dest)
 {
-	size_t	i;
+	ft_putstr_fd("eBash: cd: ", 2);
+	ft_putstr_fd(dest, 2);
+	ft_putstr_fd(": ", 2);
+	perror(NULL);
+	return (EXIT_FAILURE);
+}
 
-	i = -1;
-	if (!s1 && !s2)
-		return (0);
-	else if (!s1 || !s2)
-		return (1);
-	while (s1[++i] || s2[i])
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-	return (0);
+int	b_cd(char *dest)
+{
+	static char	*prev_dir;
+
+	if (!dest)
+		chdir(getenv("HOME"));
+	else if (!ft_strcmp(dest, "-"))
+	{
+		if (!prev_dir)
+		{
+			ft_putendl_fd("eBash: cd: OLDPWD not set", 2);
+			return (EXIT_FAILURE);
+		}
+		else
+			chdir(prev_dir);
+	}
+	else
+	{
+		prev_dir = b_pwd(1);
+		if (chdir(dest))
+			return (error_return(dest));
+	}
+	return (EXIT_SUCCESS);
 }

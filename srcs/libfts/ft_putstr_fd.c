@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gernesto <gernesto@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/21 18:09:13 by gernesto          #+#    #+#             */
-/*   Updated: 2022/01/21 19:16:27 by gernesto         ###   ########.fr       */
+/*   Created: 2021/10/09 22:12:41 by gernesto          #+#    #+#             */
+/*   Updated: 2022/01/21 19:05:25 by gernesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../hdrs/minishell.h"
 
-char	*ft_strdup(const char *str)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char	*str_in;
-	char	*str_r;
-
-	if (!str)
-		return (NULL);
-	str_in = (char *) str;
-	str_r = (char *) malloc(ft_strlen(str_in) + 1);
-	if (!str_r)
-		return (NULL);
-	ft_strcpy(str_r, str);
-	return (str_r);
+	if (!s)
+		return ;
+	write(fd, s, ft_strlen(s));
 }

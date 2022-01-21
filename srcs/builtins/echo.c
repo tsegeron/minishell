@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gernesto <gernesto@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/21 18:09:13 by gernesto          #+#    #+#             */
-/*   Updated: 2022/01/21 19:16:27 by gernesto         ###   ########.fr       */
+/*   Created: 2022/01/21 14:17:29 by gernesto          #+#    #+#             */
+/*   Updated: 2022/01/21 19:05:25 by gernesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../hdrs/minishell.h"
 
-char	*ft_strdup(const char *str)
+int	b_echo(char **av)
 {
-	char	*str_in;
-	char	*str_r;
+	size_t	i;
+	size_t	j;
 
-	if (!str)
-		return (NULL);
-	str_in = (char *) str;
-	str_r = (char *) malloc(ft_strlen(str_in) + 1);
-	if (!str_r)
-		return (NULL);
-	ft_strcpy(str_r, str);
-	return (str_r);
+	i = 0;
+	j = 0;
+	if (!ft_strcmp(av[1], "-n"))
+	{
+		i++;
+		j++;
+	}
+	while (av[++i])
+	{
+		ft_putstr_fd(av[i], 1);
+		if (av[i + 1])
+			write(1, " ", 1);
+	}
+	if (!j)
+		write(1, "\n", 1);
+	return (EXIT_SUCCESS);
 }
