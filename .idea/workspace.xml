@@ -10,24 +10,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36195d73-a7f1-4646-84a8-97108960dc7b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hdrs/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/hdrs/minishell.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minishell.a" beforeDir="false" afterPath="$PROJECT_DIR$/minishell.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/builtins/0.dup_envp_to_list.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/builtins/0.dup_envp_to_list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/builtins/0.utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/builtins/0.utils.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/builtins/builtins_handler.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/builtins/builtins_handler.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/builtins/cd.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/builtins/cd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/builtins/echo.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/builtins/echo.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/builtins/env.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/builtins/env.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/builtins/exit.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/builtins/exit.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/builtins/export.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/builtins/export.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/builtins/pwd.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/builtins/pwd.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/ft_lst.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/builtins/unset.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/builtins/unset.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_atoi.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_atoi.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_lstadd_back.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_lstadd_back.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_lstclear.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_lstclear.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_lstnew.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_lstnew.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_lstsize.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_lstsize.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_putstr_fd.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_putstr_fd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_split.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_split.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_strchr_count.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_strchr_count.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_strcmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_strcmp.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_strcpy.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_strcpy.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_strdup.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_strdup.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_strlen.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_strlen.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_substr.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_substr.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +143,7 @@
       <workItem from="1642656401388" duration="12473000" />
       <workItem from="1642673946170" duration="1948000" />
       <workItem from="1642751886659" duration="18537000" />
-      <workItem from="1642780323801" duration="2000" />
+      <workItem from="1642780323801" duration="210000" />
     </task>
     <servers />
   </component>
