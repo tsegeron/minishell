@@ -22,23 +22,12 @@
 # define CLOSE "\001\033[0m"                 // Закрыть все свойства
 # define BLOD  "\001\033[1m"                 // Подчеркнуть, жирным шрифтом, выделить
 # define BEGIN(x,y) "\001\033["#x";"#y"m\002"    // x: background, y: foreground
-<<<<<<< HEAD
-=======
 
->>>>>>> merge
 typedef struct s_list
 {
 	char *str;
 	struct	s_list	*next;
 }	t_list;
-<<<<<<< HEAD
-typedef struct s_v
-{
-	int		ac;
-	char	**av;
-	char	**envp;
-	t_list	*storylst;
-=======
 
 typedef struct s_storylst
 {
@@ -60,8 +49,7 @@ typedef struct s_v
 	char		**av;
 	t_envp		*envp;
 	t_storylst	*storylst;
-	pid_t	main_pid;
->>>>>>> merge
+	pid_t		main_pid;
 }	t_v;
 
 t_v	g_v;
@@ -83,23 +71,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 char	*ft_strchr(char *s, char c);
 char	*ft_strdup(const char *str);
-<<<<<<< HEAD
-int		ft_init_envp_gv(char **envp);
-char	*get_next_line(int fd, int buf_size);
-char	*ft_strchr(char *s, char c);
-char	*ft_strjoin(char *s1, char *s2);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-int		ft_lstclear(t_list **lst_step);
-t_list	*ft_lstlast(t_list *lst);
-size_t	ft_lstsize(t_list **lst);
-t_list	*ft_lstnew(char *str);
-void	*ft_calloc(size_t count, size_t size);
-void	ft_bzero(void *s, size_t n);
-char	**ft_split(const char *str, char c);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-size_t	ft_strchr_count(const char *str, char c);
-void	ft_pip_exe_fork(void);
-=======
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_split(char const *str, char c);
@@ -134,7 +105,4 @@ void	ft_pip_exe_fork(char *str);
 char	**ft_split_av(const char *str);
 /*	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	*/
 
-
-
->>>>>>> merge
 #endif
