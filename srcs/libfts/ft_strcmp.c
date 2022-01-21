@@ -6,7 +6,7 @@
 /*   By: gernesto <gernesto@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 11:10:20 by gernesto          #+#    #+#             */
-/*   Updated: 2022/01/06 20:26:05 by gernesto         ###   ########.fr       */
+/*   Updated: 2022/01/21 19:08:42 by gernesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int	ft_strcmp(const char *s1, const char *s2)
 		return (1);
 	while (s1[++i] || s2[i])
 		if (s1[i] != s2[i])
-			return (1);
+			return (s1[i] - s2[i]);
 	return (0);
 }
