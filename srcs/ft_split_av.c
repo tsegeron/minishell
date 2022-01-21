@@ -13,16 +13,16 @@ static int	ft_counter_words(const char *str)
 			index++;
 		if (str[index] == '\"')
 		{
-			while (str[++index] != '\"')
-				;
-			count++;
-			while (str[index] != ' ' && str[index] != '\0')
+			index++;
+			while (str[index] != '\"')
 				index++;
+			index++;
+			count++;
 		}
-		else if (str[index] != ' ' && str[index] != '\0')
+		else if (str[index] != ' ' && (str[index] != '\0'))
 		{
 			count++;
-			while (str[index] != ' ' && str[index] != '\0')
+			while (str[index] != ' ' && str[index] != '\"' && (str[index] != '\0'))
 			{
 				if (str[index] == '\"')
 					while (str[++index] != '\"')
@@ -41,7 +41,7 @@ static int	ft_len_str(const char *str, int index)
 	len = 0;
 	while (str[index] == ' ')
 		index++;
-	while ((str[index] != ' ' && str[index++] != '\0'))
+	while (str[index] != ' ' && (str[index] != '\0'))
 	{
 		if (str[index] == '\"')
 		{
@@ -50,6 +50,7 @@ static int	ft_len_str(const char *str, int index)
 			len++;
 		}
 		len++;
+		index++;
 	}
 	return (len);
 }

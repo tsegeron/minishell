@@ -26,13 +26,6 @@ FLDR_H	=	hdrs/
 MAIN	=	main.c
 #MAIN_B	=	checker.c
 
-<<<<<<< HEAD
-SRCS	=	libfts/ft_strdup.c libfts/ft_strlen.c libfts/ft_strcpy.c builtins/env.c \
-			libfts/get_next_line.c libfts/ft_strchr.c libfts/ft_strjoin.c libfts/ft_lstadd_back.c \
-			libfts/ft_lstclear.c libfts/ft_lstlast.c libfts/ft_lstnew.c libfts/ft_lstsize.c libfts/ft_calloc.c \
-			libfts/ft_bzero.c libfts/ft_split.c libfts/ft_substr.c ft_pip_exe_fork.c libfts/ft_strchr_count.c
-
-=======
 SRCS	=	libfts/ft_strlen.c			libfts/ft_bzero.c				libfts/ft_memmove.c			\
 			libfts/ft_realloc.c			libfts/ft_calloc.c				libfts/ft_strjoin.c			\
 			libfts/ft_putendl_fd.c		libfts/ft_strcmp.c				libfts/ft_strdup.c			\
@@ -45,7 +38,7 @@ SRCS	=	libfts/ft_strlen.c			libfts/ft_bzero.c				libfts/ft_memmove.c			\
 			builtins/exit.c				builtins/export.c				builtins/pwd.c				\
 			builtins/unset.c			\
 			ft_pip_exe_fork.c			ft_catch_sign.c					ft_split_av.c				\
->>>>>>> merge
+			ft_remove_cov.c
 
 
 SRC		=	$(addprefix ${FLDR_S},${SRCS})
@@ -75,11 +68,7 @@ _END	=	\e[33m
 
 ${NAME}: 	${OBJS} ${MAIN}
 			@${AR} ${LIB} $?
-<<<<<<< HEAD
-#			@${MAKE} clean
-=======
 			@${MAKE} clean
->>>>>>> merge
 			@${CC} ${FLAGS} ${OPTFLAGS} -lreadline ${MAIN} ${LIB} -o ${NAME}
 			@printf "${_GREEN}${READY}${_END}\n"
 

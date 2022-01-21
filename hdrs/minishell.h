@@ -103,6 +103,7 @@ int		b_export(char **av);
 void	ft_catch_sign(void);
 void	ft_pip_exe_fork(char *str);
 char	**ft_split_av(const char *str);
+int		ft_remove_cov(char **str);
 /*	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	*/
 
 #endif
