@@ -6,13 +6,7 @@
 /*   By: gernesto <gernesto@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:17:37 by gernesto          #+#    #+#             */
-/*   Updated: 2022/01/21 19:16:27 by gernesto         ###   ########.fr       */###   ########.fr       */
-=======
-/*   Updated: 2022/01/18 21:26:48 by gernesto         ###   ########.fr       */
->>>>>>> merge
-=======
 /*   Updated: 2022/01/21 19:05:25 by gernesto         ###   ########.fr       */
->>>>>>> q
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +21,7 @@ static char	*find_return(char *path, int status)
 		return (NULL);
 	}
 	else
-	{
-		path = ft_strjoin(path, "\n");
 		return (path);
-	}
 }
 
 char	*b_pwd(int status)

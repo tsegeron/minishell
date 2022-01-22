@@ -106,4 +106,3 @@ char	**ft_split(const char *str, char c)
 		return (ft_free_ptr(counter_words, ptr));
 	return (ptr);
 }
-

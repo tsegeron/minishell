@@ -22,10 +22,11 @@ void	ft_pip_exe_fork(char *str)
 			return;
 		if (ft_remove_cov(g_v.av))
 			return;
-		for (int j = 0; g_v.av[j]; j++)
-			printf("%s\n", g_v.av[j]);
-		printf("OK\n");
+//		for (int j = 0; g_v.av[j]; j++)
+//			printf("%s\n", g_v.av[j]);
+//		printf("OK\n");
 		i = 0;
+		builtins_handler(g_v.av);
 		while (g_v.av[i])
 			free(g_v.av[i++]);
 		free(g_v.av);

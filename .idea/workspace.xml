@@ -10,12 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36195d73-a7f1-4646-84a8-97108960dc7b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/builtins/cd.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/builtins/cd.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/builtins/pwd.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/builtins/pwd.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_lstadd_back.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_lstadd_back.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_lstclear.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_lstclear.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_lstnew.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_lstnew.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_strcmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_strcmp.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_strlen.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_strlen.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/ft_pip_exe_fork.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ft_pip_exe_fork.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,9 +35,9 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/main.c" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/hdrs/minishell.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Makefile" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/main.c" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="23pUAjohQrcTiCiVrbJslFpIlik" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -67,11 +65,6 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.minishell">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="minishell" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="1" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="minishell" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="minishell" RUN_TARGET_NAME="minishell">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -124,6 +117,9 @@
       <workItem from="1642673946170" duration="1948000" />
       <workItem from="1642751886659" duration="18537000" />
       <workItem from="1642780323801" duration="356000" />
+      <workItem from="1642786509896" duration="201000" />
+      <workItem from="1642791335446" duration="176000" />
+      <workItem from="1642847828284" duration="1487000" />
     </task>
     <servers />
   </component>
