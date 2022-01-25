@@ -1,9 +1,9 @@
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-# include <readline/readline.h>
-# include <readline/history.h>
 # include <stdio.h>
+# include <readline/history.h>
+# include <readline/readline.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
@@ -29,12 +29,6 @@ typedef struct s_list
 	struct	s_list	*next;
 }	t_list;
 
-typedef struct s_storylst
-{
-	char				*str;
-	struct s_storylst	*next;
-}	t_storylst;
-
 typedef struct s_envp
 {
 	size_t			order;
@@ -47,9 +41,17 @@ typedef struct s_v
 {
 	int			ac;
 	char		**av;
+	char		**envp_for_exe;
 	t_envp		*envp;
-	t_storylst	*storylst;
 	pid_t		main_pid;
+	size_t		ret_status;
+	int			fd_in;
+	int			fd_out;
+	int			fd_util;
+	int			fd[2];
+	char		**split_path;
+	char		**split_cmd;
+	char		**envp_path;
 }	t_v;
 
 t_v	g_v;
@@ -78,6 +80,9 @@ char	*get_next_line(int fd, int buf_size);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_lstclear(t_list **lst_step);
 int		ft_atoi(const char *str);
+char	*ft_itoa_uns(unsigned int n);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*ft_strtrim(char const *s1, char const *set);
 /*	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	*/
 
 
@@ -99,11 +104,24 @@ int		b_unset(char **av);
 int		b_export(char **av);
 /*	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	*/
 
-/*	>>>>>>>>>>>>>>>>>>	 прототипы функций Вагиза	<<<<<<<<<<<<<<<<<<<<<<<	*/
+/*	>>>>>>>>>>>>>>>>>>>	 прототипы функций mseastar	<<<<<<<<<<<<<<<<<<<<<<<	*/
 void	ft_catch_sign(void);
 void	ft_pip_exe_fork(char *str);
-char	**ft_split_av(const char *str);
-int		ft_remove_cov(char **str);
+int		ft_check_fd(int fd1, int fd2);
+int		ft_exe(char **split_path, char **split_cmd, char **envp);
+int		ft_spliting_path(char ***split);
+int		ft_spliting_cmd(char ***split_cmd, char *cmd);
+void	ft_clear_arrray(char **array);
+int		ft_open_fd(char **array, int *i);
+void	ft_keyb_in(int fd, char *str);
+int 	ft_cmd(char **array);
+/*	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	*/
+
+/*	>>>>>>>>>>>>>>>>>>>	 прототипы функций gernesto	<<<<<<<<<<<<<<<<<<<<<<<	*/
+char	*replace_dollar_signs(char *str);
+void	remove_quotes_and_split(char *str);
+char	*replace_dollar_signs(char *str);
+
 /*	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	*/
 
 #endif

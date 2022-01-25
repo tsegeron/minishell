@@ -1,39 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_itoa_uns.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gernesto <gernesto@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 18:50:45 by gernesto          #+#    #+#             */
-/*   Updated: 2022/01/25 18:50:45 by gernesto         ###   ########.fr       */
+/*   Created: 2021/10/19 21:17:08 by gernesto          #+#    #+#             */
+/*   Updated: 2021/10/20 21:36:43 by gernesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../hdrs/minishell.h"
 
-size_t	ft_strlen(const char *str)
+static int	ft_get_intlen(unsigned int num)
 {
 	int	i;
 
-	i = 0;
-	while (str[i])
+	i = 1;
+	while (num / 10 != 0)
+	{
 		i++;
+		num /= 10;
+	}
 	return (i);
 }
 
-/*	Фунция подсчета указветлей типа (char *) в массиве
- *  указателей (char **);
- *	При возвращении 0 значения выводтися ошибка.
- *	Либо (char **), либо (char **)[1] ссылается на NULL;
- */
-size_t	ft_len_array(char **array)
+static char	*get_str(unsigned int num, int end)
 {
-	size_t	len;
+	char	*res;
+	int		i;
 
-	len = 0;
-	if (array)
-		while (array[len])
-			len++;
-	return (len);
+	i = end;
+	res = (char *) malloc((end + 1) * sizeof(char));
+	if (!res)
+		return (NULL);
+	while (end-- != 0)
+	{
+		res[end] = num % 10 + 48;
+		num /= 10;
+	}
+	res[i] = '\0';
+	return (res);
+}
+
+char	*ft_itoa_uns(unsigned int n)
+{
+	char	*res;
+
+	res = get_str(n, ft_get_intlen(n));
+	return (res);
 }

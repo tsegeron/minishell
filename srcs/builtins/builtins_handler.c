@@ -28,5 +28,7 @@ int	builtins_handler(char **handle_me)
 		b_exit(handle_me);
 	else if (!ft_strcmp(handle_me[0], "env"))
 		b_env(handle_me);
+	else
+		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

@@ -36,8 +36,8 @@ t_envp	*ft_lstnew_envp(char *str)
 	list = (t_envp *) ft_calloc(1, sizeof(t_envp));
 	if (list)
 	{
-		list->val = get_envp_val_name(str, 0);
 		list->var = get_envp_val_name(str, 1);
+		list->val = get_envp_val_name(str, 0);
 	}
 	return (list);
 }

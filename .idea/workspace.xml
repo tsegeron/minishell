@@ -10,10 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36195d73-a7f1-4646-84a8-97108960dc7b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hdrs/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/hdrs/minishell.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minishell.a" beforeDir="false" afterPath="$PROJECT_DIR$/minishell.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/builtins/0.utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/builtins/0.utils.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/builtins/builtins_handler.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/builtins/builtins_handler.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/builtins/cd.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/builtins/cd.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/builtins/pwd.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/builtins/pwd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/builtins/export.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/builtins/export.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/ft_pip_exe_fork.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ft_pip_exe_fork.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/libfts/ft_strlen.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/libfts/ft_strlen.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,9 +73,12 @@
       <recent name="$PROJECT_DIR$/srcs" />
       <recent name="$PROJECT_DIR$/srcs/libfts" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunManager" selected="CMake Application.minishell">
-    <configuration name="minishell" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="1" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="minishell" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="minishell" RUN_TARGET_NAME="minishell">
+    <configuration name="minishell" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$ContentRoot$" PASS_PARENT_ENVS_2="true" RUN_PATH="$PROJECT_DIR$/minishell" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -119,7 +132,15 @@
       <workItem from="1642780323801" duration="356000" />
       <workItem from="1642786509896" duration="201000" />
       <workItem from="1642791335446" duration="176000" />
-      <workItem from="1642847828284" duration="1487000" />
+      <workItem from="1642847828284" duration="1739000" />
+      <workItem from="1642850170271" duration="1150000" />
+      <workItem from="1642854526933" duration="5933000" />
+      <workItem from="1642865724446" duration="2345000" />
+      <workItem from="1642941051908" duration="18982000" />
+      <workItem from="1643034747626" duration="750000" />
+      <workItem from="1643037140013" duration="3407000" />
+      <workItem from="1643045393698" duration="3230000" />
+      <workItem from="1643105470625" duration="20473000" />
     </task>
     <servers />
   </component>

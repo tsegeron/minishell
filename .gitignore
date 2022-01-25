@@ -7,3 +7,5 @@ README.md
 test*
 /test*
 /test/*
+/.idea
+/.idea/*

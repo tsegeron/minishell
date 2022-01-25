@@ -56,6 +56,7 @@ int	b_cd(char *dest)
 	{
 		if (go_prev_dir(&prev_dir))
 			return (EXIT_FAILURE);
+		b_pwd(0);
 	}
 	else
 	{

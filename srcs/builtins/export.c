@@ -6,7 +6,7 @@
 /*   By: gernesto <gernesto@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:11:45 by gernesto          #+#    #+#             */
-/*   Updated: 2022/01/21 19:05:25 by gernesto         ###   ########.fr       */
+/*   Updated: 2022/01/23 17:38:02 by gernesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ static void	set_envp_order(void)
 	comp_val = g_v.envp->next;
 	while (cur_val)
 	{
+		cur_val->order = 0;
+		cur_val = cur_val->next;
+	}
+	cur_val = g_v.envp;
+	while (cur_val)
+	{
 		while (comp_val)
 		{
 			if (ft_strcmp(cur_val->var, comp_val->var) > 0)
@@ -36,8 +42,8 @@ static void	set_envp_order(void)
 
 static int	print_sorted_envp(void)
 {
-	size_t	printed;
-	t_envp	*envp_head;
+	size_t		printed;
+	t_envp		*envp_head;
 
 	set_envp_order();
 	envp_head = g_v.envp;

@@ -24,6 +24,7 @@ FLDR_S	=	srcs/
 FLDR_H	=	hdrs/
 
 MAIN	=	main.c
+#MAIN	=	test.c
 #MAIN_B	=	checker.c
 
 SRCS	=	libfts/ft_strlen.c			libfts/ft_bzero.c				libfts/ft_memmove.c			\
@@ -31,14 +32,16 @@ SRCS	=	libfts/ft_strlen.c			libfts/ft_bzero.c				libfts/ft_memmove.c			\
 			libfts/ft_putendl_fd.c		libfts/ft_strcmp.c				libfts/ft_strdup.c			\
 			libfts/ft_strcpy.c			libfts/ft_putstr_fd.c			libfts/ft_atoi.c			\
 			libfts/ft_strchr.c			libfts/ft_substr.c				libfts/ft_split.c			\
-			libfts/get_next_line.c		\
-			libfts/ft_strchr_count.c	\
+			libfts/get_next_line.c		libfts/ft_itoa_uns.c			libfts/ft_strtrim.c			\
+			libfts/ft_strchr_count.c	libfts/ft_strncmp.c				\
 			builtins/0.utils.c			builtins/0.dup_envp_to_list.c	builtins/builtins_handler.c	\
 			builtins/cd.c				builtins/echo.c					builtins/env.c				\
 			builtins/exit.c				builtins/export.c				builtins/pwd.c				\
 			builtins/unset.c			\
-			ft_pip_exe_fork.c			ft_catch_sign.c					ft_split_av.c				\
-			ft_remove_cov.c
+			pipex/ft_check_fd.c			pipex/ft_spliting.c				pipex/ft_keyb_in.c			\
+			pipex/ft_exe.c				ft_clear.c 						ft_cmd.c					\
+			ft_pip_exe_fork.c			ft_catch_sign.c					ft_open_fd.c				\
+			replace_dollar_signs.c		remove_quotes.c
 
 
 SRC		=	$(addprefix ${FLDR_S},${SRCS})
@@ -69,7 +72,7 @@ _END	=	\e[33m
 ${NAME}: 	${OBJS} ${MAIN}
 			@${AR} ${LIB} $?
 			@${MAKE} clean
-			@${CC} ${FLAGS} ${OPTFLAGS} -lreadline ${MAIN} ${LIB} -o ${NAME}
+			@${CC} ${FLAGS} ${OPTFLAGS} ${MAIN} ${LIB} -o ${NAME}
 			@printf "${_GREEN}${READY}${_END}\n"
 
 
