@@ -39,9 +39,10 @@ SRCS	=	libfts/ft_strlen.c			libfts/ft_bzero.c				libfts/ft_memmove.c			\
 			builtins/exit.c				builtins/export.c				builtins/pwd.c				\
 			builtins/unset.c			\
 			pipex/ft_check_fd.c			pipex/ft_spliting.c				pipex/ft_keyb_in.c			\
-			pipex/ft_exe.c				ft_clear.c 						ft_cmd.c					\
-			ft_pip_exe_fork.c			ft_catch_sign.c					ft_open_fd.c				\
-			replace_dollar_signs.c		remove_quotes.c
+			pipex/ft_exe.c				pipex/ft_pipex.c				pipex/ft_child.c			\
+			ft_clear.c 					ft_cmd.c						ft_pip_exe_fork.c			\
+			ft_catch_sign.c				ft_open_fd.c					remove_quotes.c				\
+			replace_dollar_signs.c
 
 
 SRC		=	$(addprefix ${FLDR_S},${SRCS})
@@ -72,7 +73,7 @@ _END	=	\e[33m
 ${NAME}: 	${OBJS} ${MAIN}
 			@${AR} ${LIB} $?
 			@${MAKE} clean
-			@${CC} ${FLAGS} ${OPTFLAGS} ${MAIN} ${LIB} -o ${NAME}
+			@${CC} ${FLAGS} ${OPTFLAGS} ${MAIN} ${LIB} -lreadline -ltermcap -g -L/Users/$(USER)/.brew/opt/readline/lib/ -I/Users/$(USER)/.brew/opt/readline/include -o ${NAME}
 			@printf "${_GREEN}${READY}${_END}\n"
 
 

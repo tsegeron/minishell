@@ -12,23 +12,25 @@
 
 #include "../../hdrs/minishell.h"
 
-int	builtins_handler(char **handle_me)
+int	builtins_handler(char **handle_me, int *i)
 {
-	if (!ft_strcmp(handle_me[0], "echo"))
+	if (!ft_strcmp(handle_me[*i], "echo"))
 		b_echo(handle_me);
-	else if (!ft_strcmp(handle_me[0], "cd"))
-		b_cd(handle_me[1]);
-	else if (!ft_strcmp(handle_me[0], "pwd"))
+	else if (!ft_strcmp(handle_me[*i], "cd"))
+		b_cd(handle_me[++(*i)]);
+	else if (!ft_strcmp(handle_me[*i], "pwd"))
 		b_pwd(0);
-	else if (!ft_strcmp(handle_me[0], "export"))
+	else if (!ft_strcmp(handle_me[*i], "export"))
 		b_export(handle_me);
-	else if (!ft_strcmp(handle_me[0], "unset"))
+	else if (!ft_strcmp(handle_me[*i], "unset"))
 		b_unset(handle_me);
-	else if (!ft_strcmp(handle_me[0], "exit"))
+	else if (!ft_strcmp(handle_me[*i], "exit"))
 		b_exit(handle_me);
-	else if (!ft_strcmp(handle_me[0], "env"))
+	else if (!ft_strcmp(handle_me[*i], "env"))
 		b_env(handle_me);
 	else
 		return (EXIT_FAILURE);
+	(*i) = ft_len_array(handle_me) - 1;
 	return (EXIT_SUCCESS);
 }
+

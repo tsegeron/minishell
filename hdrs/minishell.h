@@ -46,6 +46,7 @@ typedef struct s_v
 	pid_t		main_pid;
 	size_t		ret_status;
 	int			fd_in;
+	int			fd_save;
 	int			fd_out;
 	int			fd_util;
 	int			fd[2];
@@ -94,7 +95,7 @@ int		ft_isalpha(int c);
 char	*get_envp_val_name(char *full, int status);
 int		dup_envp_to_list(char **envp);
 
-int		builtins_handler(char **handle_me);
+int		builtins_handler(char **handle_me, int *i);
 char	*b_pwd(int status);
 int		b_env(char **av);
 int		b_cd(char *dest);
@@ -114,7 +115,10 @@ int		ft_spliting_cmd(char ***split_cmd, char *cmd);
 void	ft_clear_arrray(char **array);
 int		ft_open_fd(char **array, int *i);
 void	ft_keyb_in(int fd, char *str);
-int 	ft_cmd(char **array);
+int		ft_cmd(char **array, int *i);
+char	*ft_str_for_cmd(char **array, int *i);
+void	ft_child(char **array, int step);
+void	ft_pipex(char **array, int *index);
 /*	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	*/
 
 /*	>>>>>>>>>>>>>>>>>>>	 прототипы функций gernesto	<<<<<<<<<<<<<<<<<<<<<<<	*/

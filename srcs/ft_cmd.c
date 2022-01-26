@@ -6,6 +6,8 @@ void	ft_create_envp_exe(void)
 	int		size_lst;
 	int		i;
 
+	if (g_v.envp_for_exe)
+		ft_clear_arrray(g_v.envp_for_exe);
 	size_lst = 0;
 	step = g_v.envp;
 	while(step)
@@ -25,21 +27,30 @@ void	ft_create_envp_exe(void)
 		step = step->next;
 	}
 }
-int ft_cmd(char **array)
+
+static int	ft_check_pipe(char **array, int *i)
 {
-	int	i;
-	char	*str_util;
+	int j;
+
+	j = (*i) - 1;
+	while (array[++j])
+	{
+		if (!ft_strcmp(array[j], "|"))
+			ft_pipex(array, i);
+	}
+	return (0);
+}
+
+int ft_cmd(char **array, int *i)
+{
 	pid_t	pid;
 
 	ft_create_envp_exe();
-	str_util = ft_strjoin(array[0], array[1]);
-	if (!str_util)
-		return (1);
-	i = 0;
+	ft_check_pipe(array, i);
+	ft_spliting_cmd(&g_v.split_cmd, ft_str_for_cmd(array, i));
 	pid = fork();
 	if (!pid)
 	{
-		ft_spliting_cmd(&g_v.split_cmd, array[i]);
 		ft_exe(g_v.split_path, g_v.split_cmd, g_v.envp_for_exe);
 		perror("exe  error:");
 		exit(10);

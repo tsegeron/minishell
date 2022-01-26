@@ -17,9 +17,8 @@ int	ft_spliting_path(char ***split)
 	int		i;
 	t_envp	*envp_step;
 
-
 	envp_step = g_v.envp;
-	while (!ft_strcmp(envp_step->var, "PATH"))
+	while (ft_strcmp(envp_step->var, "PATH"))
 		envp_step = envp_step->next;
 	*split = ft_split(envp_step->val, ':');
 	i = -1;
@@ -44,5 +43,6 @@ int	ft_spliting_cmd(char ***split_cmd, char *cmd)
 	*split_cmd = ft_split(cmd, ' ');
 	if (!(*split_cmd))
 		return (1);
+	free(cmd);
 	return (0);
 }

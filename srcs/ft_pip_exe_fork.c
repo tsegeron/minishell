@@ -43,26 +43,27 @@ void	ft_pip_exe_fork(char *str)
 {
 	int	i;
 
+	g_v.fd[0] = dup(STDIN_FILENO);
+	g_v.fd_out = dup(STDOUT_FILENO);
 	if (ft_check_argv(str) == 2)
 		printf("Error: undefined characters: \\ or ;\n");
 	else if (ft_check_argv(str) == 1)
 		printf("Error: lack of \' or \"\n");
 	else
 	{
+//		write(1, "\b\b\b\b\b\b\b\b", 8);
 		if (ft_spliting_path(&g_v.split_path))
-		{
 			perror("Spliting path error");
-			return;
-		}
 		remove_quotes_and_split(str);
-		while (g_v.av[++i])
+		i = 0;
+		while (g_v.av[i])
 		{
 			if (!ft_open_fd(g_v.av, &i))
-				continue ;
-			if (!builtins_handler(g_v.av + i))
-				continue ;
+				continue;
+			if (!builtins_handler(g_v.av, &i))
+				i++;
 			else
-				ft_cmd(g_v.av + i);
+				ft_cmd(g_v.av, &i);
 		}
 		i = 0;
 		while (g_v.av[i])

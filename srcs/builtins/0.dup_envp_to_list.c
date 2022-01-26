@@ -47,8 +47,8 @@ int	dup_envp_to_list(char **envp)
 	if (!envp)
 		return (EXIT_FAILURE);
 	g_v.envp = NULL;
-	i = 0;
-	while (envp[i])
-		ft_lstadd_back_envp(&g_v.envp, ft_lstnew_envp(envp[i++]));
+	i = -1;
+	while (envp[++i])
+		ft_lstadd_back_envp(&g_v.envp, ft_lstnew_envp(envp[i]));
 	return (EXIT_SUCCESS);
 }

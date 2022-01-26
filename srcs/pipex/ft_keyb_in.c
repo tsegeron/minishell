@@ -16,7 +16,7 @@ void	ft_keyb_in(int fd, char *str)
 		if (!buffer)
 			break ;
 		if (ft_strcmp(str_break, buffer))
-			write(g_v.fd_util, buffer, ft_strlen(buffer));
+			write(fd, buffer, ft_strlen(buffer));
 	}
 	free(buffer);
 }
