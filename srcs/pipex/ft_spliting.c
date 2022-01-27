@@ -35,7 +35,6 @@ int	ft_spliting_path(char ***split)
 	return (0);
 }
 
-
 int	ft_spliting_cmd(char ***split_cmd, char *cmd)
 {
 	if (*split_cmd)

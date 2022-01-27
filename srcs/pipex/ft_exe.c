@@ -21,7 +21,10 @@ int	ft_exe(char **split_path, char **split_cmd, char **envp)
 	{
 		cmd = ft_strjoin(split_path[i], split_cmd[0]);
 		if (!cmd)
-			return ((int)(write(2, "Error joined path to cmd.\n", 27)));
+		{
+			perror("eBash");
+			exit(EXIT_FAILURE);
+		}
 		if (execve(cmd, split_cmd, envp) < 0)
 		{
 			free(cmd);
@@ -29,6 +32,9 @@ int	ft_exe(char **split_path, char **split_cmd, char **envp)
 		}
 	}
 	if (!split_path[i])
-		exit((int)write(2, "Command was not found.\n", 23));
+	{
+		perror("eBash");
+		exit(127);
+	}
 	return (0);
 }

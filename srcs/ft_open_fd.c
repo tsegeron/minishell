@@ -1,11 +1,9 @@
 #include "../hdrs/minishell.h"
 
-static int	ft_two_arrow_r( char **array, int *i)
+static int	ft_two_arrow_r(char *str)
 {
-	if (!(array[*i][2]))
-		g_v.fd_out = open(array[++(*i)], O_CREAT | O_RDWR | O_APPEND, 0644);
-	else
-		g_v.fd_out = open(array[*i] + 2, O_CREAT | O_RDWR | O_APPEND, 0644);
+	close(g_v.fd_out);
+	g_v.fd_out = open(str + 2, O_CREAT | O_RDWR | O_APPEND, 0644);
 	if (g_v.fd_out < 0)
 	{
 		perror("Fd out : ");
@@ -14,12 +12,10 @@ static int	ft_two_arrow_r( char **array, int *i)
 	return (0);
 }
 
-static int	ft_one_arrow_r(char **array, int *i)
+static int	ft_one_arrow_r(char *str)
 {
-	if (array[*i][1] == '\0')
-		g_v.fd_out = open(array[++(*i)], O_CREAT | O_RDWR | O_TRUNC, 0644);
-	else
-		g_v.fd_out = open(array[*i] + 1, O_CREAT | O_RDWR | O_TRUNC, 0644);
+	close(g_v.fd_out);
+	g_v.fd_out = open(str + 1, O_CREAT | O_RDWR | O_TRUNC, 0644);
 	if (g_v.fd_out < 0)
 	{
 		perror("Fd out : ");
@@ -28,28 +24,24 @@ static int	ft_one_arrow_r(char **array, int *i)
 	return (0);
 }
 
-static int	ft_two_arrow_l(char **array, int *i)
+static int	ft_two_arrow_l(char *str)
 {
+	close(g_v.fd_util);
 	g_v.fd_util = open("here_doc", O_CREAT | O_RDWR | O_TRUNC, 0644);
 	if (g_v.fd_util < 0)
 	{
 		perror("Fd util : ");
 		return (1);
 	}
-	if (!(array[*i][2]))
-		ft_keyb_in(g_v.fd_util, array[++(*i)]);
-	else
-		ft_keyb_in(g_v.fd_util, array[*i] + 2);
+	ft_keyb_in(g_v.fd_util, str + 2);
 	return (0);
 }
 
-static int	ft_one_arrow_l(char **array, int *i)
+static int	ft_one_arrow_l(char *str)
 {
-	if (!(array[*i][2]))
-		g_v.fd_in = open(array[++(*i)], O_RDONLY);
-	else
-		g_v.fd_in = open(array[*i] + 2, O_RDONLY);
-	if (g_v.fd_in < 0)
+	close(g_v.fd[0]);
+	g_v.fd[0] = open(str + 2, O_RDONLY);
+	if (g_v.fd[0] < 0)
 	{
 		perror("Fd in : ");
 		return (1);
@@ -57,33 +49,25 @@ static int	ft_one_arrow_l(char **array, int *i)
 	return (0);
 }
 
-int	ft_open_fd(char **array, int *i)
+int	ft_open_fd(char *str, int status)
 {
-	if (!ft_strncmp(">>", array[*i], 2) && array[*i][2] != '>' && array[*i][2] != '<')
+	if (status == 2)
 	{
-		if (ft_two_arrow_r(array, i))
-			exit(1);
-		close(g_v.fd_out);
+		if (ft_two_arrow_r(str))
+			return (1);
 	}
-	else if (!ft_strncmp(">", array[*i], 1) && array[*i][1] != '>' && array[*i][1] != '<')
+	else if (status == 1)
 	{
-		if (ft_one_arrow_r(array, i))
-			exit(1);
-		close(g_v.fd_out);
+		if (ft_one_arrow_r(str))
+			return (1);
 	}
-	else if (!ft_strncmp("<<", array[*i], 2) && array[*i][2] != '>' && array[*i][2] != '<')
+	else if (status == 4)
 	{
-		if (ft_two_arrow_l(array, i))
-			exit(1);
-		close(g_v.fd_in);
+		if (ft_two_arrow_l(str))
+			return (1);
 	}
-	else if (!ft_strncmp("<", array[*i], 1) && array[*i][1] != '>' && array[*i][1] != '<')
-	{
-		if (ft_one_arrow_l(array, i))
-			exit(1);
-		close(g_v.fd_in);
-	}
-	else
-		return (1);
+	else if (status == 3)
+		if (ft_one_arrow_l(str))
+			return (1);
 	return (0);
 }

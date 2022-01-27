@@ -39,6 +39,7 @@ int	main(int ac, char **av, char **envp)
 	{
 //		signal(EOF, my_signal(EOF));
 		free(str);
+		wait(NULL);
 		str = readline(BEGIN(49, 34)"eBash_$ "CLOSE);
 		if (!str)
 			return (1);

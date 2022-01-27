@@ -51,23 +51,19 @@ void	ft_pip_exe_fork(char *str)
 		printf("Error: lack of \' or \"\n");
 	else
 	{
-//		write(1, "\b\b\b\b\b\b\b\b", 8);
 		if (ft_spliting_path(&g_v.split_path))
 			perror("Spliting path error");
 		remove_quotes_and_split(str);
+//		for (int i =0;g_v.av[i];i++)
+//			printf("%d.%s\n",i, g_v.av[i]);
 		i = 0;
 		while (g_v.av[i])
 		{
-			if (!ft_open_fd(g_v.av, &i))
-				continue;
 			if (!builtins_handler(g_v.av, &i))
 				i++;
 			else
 				ft_cmd(g_v.av, &i);
 		}
-		i = 0;
-		while (g_v.av[i])
-			free(g_v.av[i++]);
-		free(g_v.av);
+		ft_clear_arrray(g_v.av);
 	}
 }

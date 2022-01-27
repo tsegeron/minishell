@@ -38,11 +38,11 @@ SRCS	=	libfts/ft_strlen.c			libfts/ft_bzero.c				libfts/ft_memmove.c			\
 			builtins/cd.c				builtins/echo.c					builtins/env.c				\
 			builtins/exit.c				builtins/export.c				builtins/pwd.c				\
 			builtins/unset.c			\
-			pipex/ft_check_fd.c			pipex/ft_spliting.c				pipex/ft_keyb_in.c			\
+			pipex/ft_spliting.c				pipex/ft_keyb_in.c			\
 			pipex/ft_exe.c				pipex/ft_pipex.c				pipex/ft_child.c			\
 			ft_clear.c 					ft_cmd.c						ft_pip_exe_fork.c			\
 			ft_catch_sign.c				ft_open_fd.c					remove_quotes.c				\
-			replace_dollar_signs.c
+			replace_dollar_signs.c		do_stuff.c
 
 
 SRC		=	$(addprefix ${FLDR_S},${SRCS})

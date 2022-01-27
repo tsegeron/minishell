@@ -44,7 +44,7 @@ typedef struct s_v
 	char		**envp_for_exe;
 	t_envp		*envp;
 	pid_t		main_pid;
-	size_t		ret_status;
+	int			ret_status;
 	int			fd_in;
 	int			fd_save;
 	int			fd_out;
@@ -113,7 +113,7 @@ int		ft_exe(char **split_path, char **split_cmd, char **envp);
 int		ft_spliting_path(char ***split);
 int		ft_spliting_cmd(char ***split_cmd, char *cmd);
 void	ft_clear_arrray(char **array);
-int		ft_open_fd(char **array, int *i);
+int		ft_open_fd(char *str, int status);
 void	ft_keyb_in(int fd, char *str);
 int		ft_cmd(char **array, int *i);
 char	*ft_str_for_cmd(char **array, int *i);
@@ -125,7 +125,7 @@ void	ft_pipex(char **array, int *index);
 char	*replace_dollar_signs(char *str);
 void	remove_quotes_and_split(char *str);
 char	*replace_dollar_signs(char *str);
-
+void	do_mthfoocking_redir_shit(char *check_me, char c, size_t *index);
 /*	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	*/
 
 #endif

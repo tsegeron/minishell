@@ -15,20 +15,20 @@
 void	ft_child(char **array, int i)
 {
 	if (dup2(g_v.fd_save, STDIN_FILENO) < 0)
-		return ;
+		exit(EXIT_FAILURE);
 	close(g_v.fd_save);
-	if (i== (int)ft_len_array(array))
+	if (i == (int)ft_len_array(array))
 	{
 		if (dup2(g_v.fd_out, STDOUT_FILENO) < 0)
-			return ;
+			exit(EXIT_FAILURE);
 		close(g_v.fd_out);
 	}
 	else
 	{
 		if (dup2(g_v.fd[1], STDOUT_FILENO) < 0)
-			return ;
+			exit(EXIT_FAILURE);
 		close(g_v.fd[1]);
 	}
 	if (ft_exe(g_v.split_path, g_v.split_cmd, g_v.envp_for_exe))
-		return ;
+		exit(EXIT_FAILURE);
 }

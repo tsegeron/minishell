@@ -131,17 +131,22 @@ void	remove_quotes_and_split(char *str)
 	{
 		if (q.trim[q.i] == ' ')
 			implement_index(&q.i, &q.s, q.trim, ' ');
+		else if (q.trim[q.i] == '<' || q.trim[q.i] == '>')
+			do_mthfoocking_redir_shit(&q.trim[q.i], q.trim[q.i], &q.i);
 		else if (q.trim[q.i] == '\'')
 			pull_str_from_quotes(&q, '\'');
 		else if (q.trim[q.i] == '\"')
 			pull_str_from_quotes(&q, '\"');
 		q.j = q.i;
 		while (q.trim[q.i] && !replace_dollar(&q, q.trim[q.i]) && \
-		q.trim[q.i] != ' ' && q.trim[q.i] != '\'' && q.trim[q.i] != '\"')
+		q.trim[q.i] != ' ' && q.trim[q.i] != '\'' && q.trim[q.i] != '\"' && \
+		q.trim[q.i] != '<' && q.trim[q.i] != '>')
 			q.i++;
 		q.tmp = ft_substr(q.trim, q.j, q.i - q.j);
 		g_v.av[q.s] = ft_strjoin(g_v.av[q.s], q.tmp);
 		free(q.tmp);
 	}
 	free(q.trim);
+	for (int i = 0; g_v.av[i]; i++)
+		printf("%s\n", g_v.av[i]);
 }
