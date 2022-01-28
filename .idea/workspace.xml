@@ -11,19 +11,18 @@
   <component name="ChangeListManager">
     <list default="true" id="36195d73-a7f1-4646-84a8-97108960dc7b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/a.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ft_create_here_doc.c" beforeDir="false" afterPath="$PROJECT_DIR$/ft_create_here_doc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hdrs/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/hdrs/minishell.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/here_doc" beforeDir="false" afterPath="$PROJECT_DIR$/here_doc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell.a" beforeDir="false" afterPath="$PROJECT_DIR$/minishell.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minishell.dSYM/Contents/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/builtins/0.utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/builtins/0.utils.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/do_stuff.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/do_stuff.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/ft_open_fd.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ft_open_fd.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/ft_pip_exe_fork.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ft_pip_exe_fork.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/remove_quotes.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/remove_quotes.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/pipex/ft_child.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/pipex/ft_child.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/pipex/ft_pipex.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/pipex/ft_pipex.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/signals.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/signals.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,6 +154,7 @@
       <workItem from="1643287217439" duration="2079000" />
       <workItem from="1643292777383" duration="9561000" />
       <workItem from="1643367341776" duration="12408000" />
+      <workItem from="1643387828740" duration="1296000" />
     </task>
     <servers />
   </component>

@@ -63,6 +63,7 @@ int	ft_open_fd(char *str, int status)
 	{
 		if (ft_two_arrow_l(str))
 			return (1);
+		handle_signals();
 	}
 	else if (status == 3)
 		if (ft_one_arrow_l(str))

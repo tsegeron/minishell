@@ -1,11 +1,33 @@
 #include "hdrs/minishell.h"
 
+static void	my_sigquit1(int signum)
+{
+	(void)signum;
+	printf("Quit: %d\n", signum);
+}
+
+static void	my_sigint_proc1(int signum)
+{
+	if (signum == SIGINT)
+	{
+		write(1, "\n", 1);
+		g_v.ret_status = 1;
+	}
+}
+
+static void	handle_signals_in_proc1(void)
+{
+	signal(SIGQUIT, my_sigquit1);
+	signal(SIGINT, my_sigint_proc1);
+}
+
 int main(int ac, char **av)
 {
 	char	*buffer;
 	char	*str_break;
 	int		fd;
 
+	handle_signals_in_proc1();
 	fd = open("here_doc", O_CREAT | O_RDWR | O_TRUNC, 0644);
 	if (fd < 0)
 		return (1);

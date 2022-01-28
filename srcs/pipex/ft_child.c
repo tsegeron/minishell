@@ -29,8 +29,6 @@ void	ft_child(char **array, int *i)
 			exit(EXIT_FAILURE);
 		close(g_v.fd[1]);
 	}
-//	signal(SIGQUIT, SIG_DFL);
-//	signal(SIGINT, SIG_DFL);
 	if (!builtins_handler(g_v.av, i))
 	{
 		*i += 1;

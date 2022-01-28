@@ -17,11 +17,32 @@ void	my_sigint(int signum)
 void	my_sigquit(int signum)
 {
 	(void)signum;
-	printf("%d", SIGTERM);
+	printf("Quit: %d\n", signum);
 }
 
 int	eof_exit(void)
 {
 	write(1, "exit\n", 5);
 	return (g_v.ret_status);
+}
+
+void	my_sigint_proc(int signum)
+{
+	if (signum == SIGINT)
+	{
+		write(1, "\n", 1);
+		g_v.ret_status = 1;
+	}
+}
+
+void	handle_signals(void)
+{
+	signal(SIGQUIT, SIG_IGN);
+	signal(SIGINT, my_sigint);
+}
+
+void	handle_signals_in_proc(void)
+{
+	signal(SIGQUIT, my_sigquit);
+	signal(SIGINT, my_sigint_proc);
 }

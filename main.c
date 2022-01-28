@@ -18,13 +18,12 @@ int	main(int ac, char **av, char **envp)
 
 	dup_envp_to_list(envp);
 	g_v.ret_status = 0;
-	signal(SIGQUIT, SIG_IGN);
 	if (ac != 1)
 		return (1);
 	str = malloc(10);
 	while (1)
 	{
-		signal(SIGINT, my_sigint);
+		handle_signals();
 		if (str)
 			free(str);
 		wait(NULL);

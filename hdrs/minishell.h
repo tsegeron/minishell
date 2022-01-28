@@ -128,8 +128,11 @@ void	remove_quotes_and_split(char *str);
 char	*replace_dollar_signs(char *str);
 void	do_mthfoocking_redir_shit(char *check_me, char c, size_t *index);
 void	my_sigint(int signum);
+void	my_sigint_proc(int signum);
 void	my_sigquit(int signum);
 int		eof_exit(void);
+void	handle_signals(void);
+void	handle_signals_in_proc(void);
 /*	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	*/
 
 #endif

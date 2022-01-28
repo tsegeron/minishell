@@ -81,6 +81,7 @@ void	ft_pipex(char **array, int *index)
 		close(g_v.fd[0]);
 		if (ft_piping(array, index))
 			return ;
+		handle_signals_in_proc();
 		g_v.main_pid = fork();
 		if (g_v.main_pid < 0)
 		{
