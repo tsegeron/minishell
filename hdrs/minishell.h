@@ -114,11 +114,12 @@ int		ft_spliting_path(char ***split);
 int		ft_spliting_cmd(char ***split_cmd, char *cmd);
 void	ft_clear_arrray(char **array);
 int		ft_open_fd(char *str, int status);
-void	ft_keyb_in(int fd, char *str);
+int		ft_keyb_in(int fd, char *str);
 int		ft_cmd(char **array, int *i);
 char	*ft_str_for_cmd(char **array, int *i);
-void	ft_child(char **array, int step);
+void	ft_child(char **array, int *i);
 void	ft_pipex(char **array, int *index);
+void	ft_create_envp_exe(void);
 /*	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	*/
 
 /*	>>>>>>>>>>>>>>>>>>>	 прототипы функций gernesto	<<<<<<<<<<<<<<<<<<<<<<<	*/
@@ -126,6 +127,9 @@ char	*replace_dollar_signs(char *str);
 void	remove_quotes_and_split(char *str);
 char	*replace_dollar_signs(char *str);
 void	do_mthfoocking_redir_shit(char *check_me, char c, size_t *index);
+void	my_sigint(int signum);
+void	my_sigquit(int signum);
+int		eof_exit(void);
 /*	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	*/
 
 #endif

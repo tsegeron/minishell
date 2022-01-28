@@ -12,12 +12,12 @@
 
 #include "../../hdrs/minishell.h"
 
-void	ft_child(char **array, int i)
+void	ft_child(char **array, int *i)
 {
 	if (dup2(g_v.fd_save, STDIN_FILENO) < 0)
 		exit(EXIT_FAILURE);
 	close(g_v.fd_save);
-	if (i == (int)ft_len_array(array))
+	if (*i == (int)ft_len_array(array))
 	{
 		if (dup2(g_v.fd_out, STDOUT_FILENO) < 0)
 			exit(EXIT_FAILURE);
@@ -29,6 +29,17 @@ void	ft_child(char **array, int i)
 			exit(EXIT_FAILURE);
 		close(g_v.fd[1]);
 	}
-	if (ft_exe(g_v.split_path, g_v.split_cmd, g_v.envp_for_exe))
+//	signal(SIGQUIT, SIG_DFL);
+//	signal(SIGINT, SIG_DFL);
+	if (!builtins_handler(g_v.av, i))
+	{
+		*i += 1;
 		exit(EXIT_FAILURE);
+	}
+	else if (ft_exe(g_v.split_path, g_v.split_cmd, g_v.envp_for_exe))
+	{
+		exit(EXIT_FAILURE);
+	}
+//	signal(SIGQUIT, SIG_IGN);
+//	signal(SIGINT, my_sigint);
 }

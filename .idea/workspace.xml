@@ -11,22 +11,18 @@
   <component name="ChangeListManager">
     <list default="true" id="36195d73-a7f1-4646-84a8-97108960dc7b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hdrs/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/hdrs/minishell.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/here_doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/5" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell.a" beforeDir="false" afterPath="$PROJECT_DIR$/minishell.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell.dSYM/Contents/Info.plist" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/ft_cmd.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ft_cmd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/builtins/0.utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/builtins/0.utils.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/do_stuff.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/do_stuff.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/ft_open_fd.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ft_open_fd.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/ft_pip_exe_fork.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ft_pip_exe_fork.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/pipex/ft_check_fd.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/pipex/ft_child.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/pipex/ft_child.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/pipex/ft_exe.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/pipex/ft_exe.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/pipex/ft_pipex.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/pipex/ft_pipex.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/pipex/ft_spliting.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/pipex/ft_spliting.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/remove_quotes.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/remove_quotes.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,13 +67,13 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/srcs/pipex" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/srcs" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/srcs/pipex" />
       <recent name="$PROJECT_DIR$/srcs" />
+      <recent name="$PROJECT_DIR$/srcs/pipex" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/srcs/libfts" />
     </key>
@@ -157,7 +153,8 @@
       <workItem from="1643275939333" duration="100000" />
       <workItem from="1643278866901" duration="4941000" />
       <workItem from="1643287217439" duration="2079000" />
-      <workItem from="1643292777383" duration="9023000" />
+      <workItem from="1643292777383" duration="9561000" />
+      <workItem from="1643367341776" duration="12408000" />
     </task>
     <servers />
   </component>

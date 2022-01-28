@@ -12,6 +12,18 @@
 
 #include "../../hdrs/minishell.h"
 
+static char	*get_new_shlvl(char *str)
+{
+	char	*tmp;
+	int		lvl;
+
+	tmp = get_envp_val_name(str, 0);
+	lvl = ft_atoi(tmp) + 1;
+	free(tmp);
+	tmp = ft_itoa_uns(lvl);
+	return (tmp);
+}
+
 int	ft_isalpha(int c)
 {
 	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == '_')
@@ -37,7 +49,10 @@ t_envp	*ft_lstnew_envp(char *str)
 	if (list)
 	{
 		list->var = get_envp_val_name(str, 1);
-		list->val = get_envp_val_name(str, 0);
+		if (!ft_strcmp(list->var, "SHLVL"))
+			list->val = get_new_shlvl(str);
+		else
+			list->val = get_envp_val_name(str, 0);
 	}
 	return (list);
 }

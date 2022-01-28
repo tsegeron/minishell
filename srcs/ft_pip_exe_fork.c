@@ -45,6 +45,11 @@ void	ft_pip_exe_fork(char *str)
 
 	g_v.fd[0] = dup(STDIN_FILENO);
 	g_v.fd_out = dup(STDOUT_FILENO);
+	if (g_v.fd[0] < 0 || g_v.fd_out < 0)
+	{
+		perror("eBash");
+		return ;
+	}
 	if (ft_check_argv(str) == 2)
 		printf("Error: undefined characters: \\ or ;\n");
 	else if (ft_check_argv(str) == 1)
@@ -52,18 +57,18 @@ void	ft_pip_exe_fork(char *str)
 	else
 	{
 		if (ft_spliting_path(&g_v.split_path))
+		{
 			perror("Spliting path error");
+			return ;
+		}
+		ft_create_envp_exe();
 		remove_quotes_and_split(str);
-//		for (int i =0;g_v.av[i];i++)
-//			printf("%d.%s\n",i, g_v.av[i]);
+		if (!g_v.av)
+			return ;
 		i = 0;
 		while (g_v.av[i])
-		{
-			if (!builtins_handler(g_v.av, &i))
-				i++;
-			else
-				ft_cmd(g_v.av, &i);
-		}
+			ft_cmd(g_v.av, &i);
 		ft_clear_arrray(g_v.av);
+		ft_clear_arrray(g_v.split_path);
 	}
 }

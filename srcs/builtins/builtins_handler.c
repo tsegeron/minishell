@@ -30,7 +30,7 @@ int	builtins_handler(char **handle_me, int *i)
 		b_env(handle_me);
 	else
 		return (EXIT_FAILURE);
-	(*i) = ft_len_array(handle_me) - 1;
+	ft_str_for_cmd(handle_me, i);
+	*i -= 1;
 	return (EXIT_SUCCESS);
 }
-

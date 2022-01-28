@@ -14,28 +14,37 @@
 
 static void	ft_wait_all(int num)
 {
+	waitpid(g_v.main_pid, &g_v.ret_status, 0);
+	g_v.ret_status = WEXITSTATUS(g_v.ret_status);
 	while (--num > 0)
 		wait(NULL);
+}
+
+static	void	*ft_start_prog(char **array, int *i)
+{
+	int		pid;
+
+	pid = fork();
+	if (!pid && execve(array[*i], array + *i + 1, g_v.envp_for_exe) < 0)
+	{
+		perror("eBash");
+		exit(127);
+	}
+	waitpid(pid, &g_v.ret_status, 0);
+	g_v.ret_status = WEXITSTATUS(g_v.ret_status);
+	(*i) = (int)ft_len_array(array);
+	return (NULL);
 }
 
 char	*ft_str_for_cmd(char **array, int *i)
 {
 	char	*str_util;
-	int		pid;
 
 	str_util = NULL;
 	while (array[*i] && ft_strcmp(array[*i], "|"))
 	{
 		if (!ft_strncmp("./", array[*i], 2))
-		{
-			pid = fork();
-			if (!pid)
-				if (execve(array[*i], array + *i + 1, g_v.envp_for_exe) < 0)
-					exit(1);
-			wait(NULL);
-			(*i) = (int)ft_len_array(array);
-			return (NULL);
-		}
+			return (ft_start_prog(array, i));
 		str_util = ft_strjoin(str_util, array[*i]);
 		str_util = ft_strjoin(str_util, " ");
 		(*i) += 1;
@@ -45,25 +54,33 @@ char	*ft_str_for_cmd(char **array, int *i)
 	return (str_util);
 }
 
+static int	ft_piping(char **array, int *index)
+{
+	char	*str_cmd;
+
+	str_cmd = ft_str_for_cmd(array, index);
+	if (!str_cmd)
+		return (1);
+	if (ft_spliting_cmd(&g_v.split_cmd, str_cmd) || \
+			pipe(g_v.fd) < 0)
+	{
+		perror("eBash");
+		exit(EXIT_FAILURE);
+	}
+	return (0);
+}
+
 void	ft_pipex(char **array, int *index)
 {
 	int		num_cmd;
-	char	*str_cmd;
 
 	num_cmd = 0;
 	while (array[(*index)])
 	{
 		g_v.fd_save = dup(g_v.fd[0]);
 		close(g_v.fd[0]);
-		str_cmd = ft_str_for_cmd(array, index);
-		if (!str_cmd)
-			return;
-		if (ft_spliting_cmd(&g_v.split_cmd, str_cmd) || \
-			pipe(g_v.fd) < 0)
-		{
-			perror("eBash");
-			exit(EXIT_FAILURE);
-		}
+		if (ft_piping(array, index))
+			return ;
 		g_v.main_pid = fork();
 		if (g_v.main_pid < 0)
 		{
@@ -71,12 +88,10 @@ void	ft_pipex(char **array, int *index)
 			exit(EXIT_FAILURE);
 		}
 		if (!g_v.main_pid)
-			ft_child(array, *index);
+			ft_child(array, index);
 		close(g_v.fd[1]);
 		num_cmd++;
 	}
 	close(g_v.fd[0]);
-	waitpid(g_v.main_pid, &g_v.ret_status, 0);
-	g_v.ret_status = WEXITSTATUS(g_v.ret_status);
 	ft_wait_all(num_cmd);
 }

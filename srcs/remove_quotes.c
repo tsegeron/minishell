@@ -147,6 +147,4 @@ void	remove_quotes_and_split(char *str)
 		free(q.tmp);
 	}
 	free(q.trim);
-	for (int i = 0; g_v.av[i]; i++)
-		printf("%s\n", g_v.av[i]);
 }

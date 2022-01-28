@@ -1,22 +1,18 @@
 #include "../../hdrs/minishell.h"
 
-void	ft_keyb_in(int fd, char *str)
+int	ft_keyb_in(int fd, char *str)
 {
-	char	*buffer;
-	char	*str_break;
+	char **str2;
+	pid_t pid;
+	int status;
 
-	buffer = ft_strdup("hor");
-	str_break = ft_strdup(str);
-	str_break = ft_strjoin(str_break, "\n");
-	while (ft_strcmp(str_break, buffer))
-	{
-		if (buffer)
-			free(buffer);
-		buffer = get_next_line(0, 1);
-		if (!buffer)
-			break ;
-		if (ft_strcmp(str_break, buffer))
-			write(fd, buffer, ft_strlen(buffer));
-	}
-	free(buffer);
+	str2 = ft_calloc(3, sizeof(char *));
+	str2[0] = ft_strdup("./a.out");
+	str2[1] = str;
+	pid = fork();
+	if (!pid)
+		execve(str2[0], str2, g_v.envp_for_exe);
+	wait(&status);
+	printf("%d\n", WEXITSTATUS(status));
+	return (0);
 }

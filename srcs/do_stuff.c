@@ -47,7 +47,7 @@ static void	pull_str_from_quotes(t_local *q, char c)
 	else
 		while (q->ret[q->i] != '\"' && !replace_dollar(q, q->ret[q->i]))
 			q->i++;
-	tmp2 = ft_substr(q->ret, q->j, q->i - q->j); // строка между кавычек
+	tmp2 = ft_substr(q->ret, q->j, q->i - q->j);
 	q->i++;
 	q->tmp = ft_strjoin(q->tmp, tmp);
 	q->tmp = ft_strjoin(q->tmp, tmp2);
@@ -65,7 +65,10 @@ void	do_mthfoocking_redir_shit(char *check_me, char c, size_t *index)
 	while (q.ret[q.i] == c)
 		q.i++;
 	if (q.i > 2 || !q.ret[q.i])
+	{
+		free(q.ret);
 		return ;
+	}
 	q.count_ptrs = q.i;
 	q.tmp = NULL;
 	while (q.ret[q.i] == ' ')
@@ -73,19 +76,21 @@ void	do_mthfoocking_redir_shit(char *check_me, char c, size_t *index)
 	while (q.ret[q.i] && q.ret[q.i] != ' ')
 	{
 		q.j = q.i;
-		while (q.ret[q.i] && !replace_dollar(&q, q.ret[q.i]) && q.ret[q.i] != '\'' \
-		&& q.ret[q.i] != '\"' && q.ret[q.i] != ' ')
+		while (q.ret[q.i] && !replace_dollar(&q, q.ret[q.i]) && \
+		q.ret[q.i] != '\'' && q.ret[q.i] != '\"' && q.ret[q.i] != ' ')
 			q.i++;
 		if (!q.ret[q.i] || q.ret[q.i] == ' ')
 		{
 			if (!tmp)
 				tmp = ft_substr(q.ret, q.j, q.i - q.j);
 			q.tmp = ft_strjoin(q.tmp, tmp);
-			break;
+			break ;
 		}
 		else if (q.ret[q.i] == '\'' || q.ret[q.i] == '\"')
 			pull_str_from_quotes(&q, q.ret[q.i]);
 	}
+	if (tmp)
+		free(tmp);
 	while (q.ret[q.i] == ' ')
 		q.i++;
 	(*index) += q.i;
@@ -94,6 +99,5 @@ void	do_mthfoocking_redir_shit(char *check_me, char c, size_t *index)
 		ft_open_fd(q.tmp, 0 + (int )q.count_ptrs);
 	else
 		ft_open_fd(q.tmp, 2 + (int )q.count_ptrs);
-//	printf("filename >>%s<<\n", q.tmp);
 	free(q.tmp);
 }

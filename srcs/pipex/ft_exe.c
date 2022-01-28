@@ -17,6 +17,7 @@ int	ft_exe(char **split_path, char **split_cmd, char **envp)
 	char	*cmd;
 
 	i = -1;
+	execve(split_cmd[0], split_cmd, envp);
 	while (split_path[++i])
 	{
 		cmd = ft_strjoin(split_path[i], split_cmd[0]);

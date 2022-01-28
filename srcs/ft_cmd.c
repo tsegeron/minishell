@@ -30,8 +30,6 @@ void	ft_create_envp_exe(void)
 
 int	ft_cmd(char **array, int *i)
 {
-	ft_create_envp_exe();
 	ft_pipex(array, i);
-	unlink("here_doc");
 	return (0);
 }
