@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
-    <generated />
+    <generated>
+      <config projectName="mish" targetName="mish" />
+    </generated>
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -10,19 +12,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36195d73-a7f1-4646-84a8-97108960dc7b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/mish.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/a.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ft_create_here_doc.c" beforeDir="false" afterPath="$PROJECT_DIR$/ft_create_here_doc.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hdrs/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/hdrs/minishell.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/here_doc" beforeDir="false" afterPath="$PROJECT_DIR$/here_doc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell.a" beforeDir="false" afterPath="$PROJECT_DIR$/minishell.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/ft_cmd.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ft_cmd.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/ft_open_fd.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ft_open_fd.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/pipex/ft_child.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/pipex/ft_child.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/ft_pip_exe_fork.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ft_pip_exe_fork.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/pipex/ft_pipex.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/pipex/ft_pipex.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/signals.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/signals.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/remove_quotes.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/remove_quotes.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +33,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -49,6 +51,11 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2021" />
+    <option name="minorVersion" value="3.2" />
   </component>
   <component name="ProjectId" id="23pUAjohQrcTiCiVrbJslFpIlik" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -68,6 +75,8 @@
     <property name="cmake.loaded.for.project" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/srcs" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="structure.view.defaults.are.configured" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -87,7 +96,17 @@
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="minishell" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$ContentRoot$" PASS_PARENT_ENVS_2="true" RUN_PATH="$PROJECT_DIR$/minishell" EXPLICIT_BUILD_TARGET_NAME="all">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="minishell" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$ContentRoot$" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/minishell" EXPLICIT_BUILD_TARGET_NAME="all">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="mish" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mish" TARGET_NAME="mish" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="mish" RUN_TARGET_NAME="mish">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -109,6 +128,7 @@
     </configuration>
     <list>
       <item itemvalue="CMake Application.minishell" />
+      <item itemvalue="CMake Application.mish" />
       <item itemvalue="Shell Script.bash.sh" />
     </list>
     <recent_temporary>
@@ -154,7 +174,10 @@
       <workItem from="1643287217439" duration="2079000" />
       <workItem from="1643292777383" duration="9561000" />
       <workItem from="1643367341776" duration="12408000" />
-      <workItem from="1643387828740" duration="1296000" />
+      <workItem from="1643387828740" duration="1337000" />
+      <workItem from="1643453632877" duration="601000" />
+      <workItem from="1643456158944" duration="7586000" />
+      <workItem from="1643470175255" duration="5946000" />
     </task>
     <servers />
   </component>

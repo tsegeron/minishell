@@ -38,12 +38,17 @@ static int	ft_one_arrow_l(char *str)
 
 static int	ft_two_arrow_l(char *str)
 {
+	int	util;
+
 	if (ft_keyb_in(g_v.fd_util, str))
 	{
 		perror("Fd util : ");
 		return (1);
 	}
-	ft_one_arrow_l("here_doc");
+	util = ft_one_arrow_l("here_doc");
+	unlink("here_doc");
+	if (util)
+		return (1);
 	return (0);
 }
 

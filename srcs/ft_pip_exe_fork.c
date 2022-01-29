@@ -41,8 +41,6 @@ static int	ft_check_argv(char *str)
 
 void	ft_pip_exe_fork(char *str)
 {
-	int	i;
-
 	g_v.fd[0] = dup(STDIN_FILENO);
 	g_v.fd_out = dup(STDOUT_FILENO);
 	if (g_v.fd[0] < 0 || g_v.fd_out < 0)
@@ -65,9 +63,7 @@ void	ft_pip_exe_fork(char *str)
 		remove_quotes_and_split(str);
 		if (!g_v.av)
 			return ;
-		i = 0;
-		while (g_v.av[i])
-			ft_cmd(g_v.av, &i);
+		ft_pipex(g_v.av);
 		ft_clear_arrray(g_v.av);
 		ft_clear_arrray(g_v.split_path);
 	}

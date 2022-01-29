@@ -118,7 +118,7 @@ int		ft_keyb_in(int fd, char *str);
 int		ft_cmd(char **array, int *i);
 char	*ft_str_for_cmd(char **array, int *i);
 void	ft_child(char **array, int *i);
-void	ft_pipex(char **array, int *index);
+void	ft_pipex(char **array);
 void	ft_create_envp_exe(void);
 /*	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	*/
 

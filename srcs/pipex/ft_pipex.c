@@ -70,16 +70,18 @@ static int	ft_piping(char **array, int *index)
 	return (0);
 }
 
-void	ft_pipex(char **array, int *index)
+void	ft_pipex(char **array)
 {
 	int		num_cmd;
+	int		index;
 
+	index = 0;
 	num_cmd = 0;
-	while (array[(*index)])
+	while (array[(index)])
 	{
 		g_v.fd_save = dup(g_v.fd[0]);
 		close(g_v.fd[0]);
-		if (ft_piping(array, index))
+		if (ft_piping(array, &index))
 			return ;
 		handle_signals_in_proc();
 		g_v.main_pid = fork();
@@ -89,7 +91,7 @@ void	ft_pipex(char **array, int *index)
 			exit(EXIT_FAILURE);
 		}
 		if (!g_v.main_pid)
-			ft_child(array, index);
+			ft_child(array, &index);
 		close(g_v.fd[1]);
 		num_cmd++;
 	}

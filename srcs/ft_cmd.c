@@ -27,9 +27,3 @@ void	ft_create_envp_exe(void)
 		step = step->next;
 	}
 }
-
-int	ft_cmd(char **array, int *i)
-{
-	ft_pipex(array, i);
-	return (0);
-}
