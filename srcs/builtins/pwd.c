@@ -16,7 +16,7 @@ static char	*find_return(char *path, int status)
 {
 	if (!status)
 	{
-		ft_putendl_fd(path, 1);
+		ft_putendl_fd(path, STDOUT_FILENO);
 		free(path);
 		return (NULL);
 	}

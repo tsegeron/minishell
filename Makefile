@@ -1,3 +1,4 @@
+
 CC			=	gcc
 #-Wall -Wextra -Werror
 FLAGS		=
@@ -12,6 +13,7 @@ AR			=	ar rcs
 # ------------------------------------------------------------------------------
 
 NAME 	=	minishell
+NAME_U	=	create_here_doc
 LIB		=	minishell.a
 #LIB1	=	libft.a
 #LIB2	=	pipex.a
@@ -33,17 +35,18 @@ SRCS	=	libfts/ft_strlen.c			libfts/ft_bzero.c				libfts/ft_memmove.c			\
 			libfts/ft_strcpy.c			libfts/ft_putstr_fd.c			libfts/ft_atoi.c			\
 			libfts/ft_strchr.c			libfts/ft_substr.c				libfts/ft_split.c			\
 			libfts/get_next_line.c		libfts/ft_itoa_uns.c			libfts/ft_strtrim.c			\
-			libfts/ft_strchr_count.c	libfts/ft_strncmp.c				\
+			libfts/ft_strchr_count.c	libfts/ft_strncmp.c				libfts/ft_strrchr.c			\
 			builtins/0.utils.c			builtins/0.dup_envp_to_list.c	builtins/builtins_handler.c	\
 			builtins/cd.c				builtins/echo.c					builtins/env.c				\
 			builtins/exit.c				builtins/export.c				builtins/pwd.c				\
 			builtins/unset.c			\
-			pipex/ft_spliting.c			pipex/ft_keyb_in.c				\
-			pipex/ft_exe.c				pipex/ft_pipex.c				pipex/ft_child.c			\
+			pipex/ft_spliting.c			pipex/ft_keyb_in.c				pipex/ft_child.c			\
+			pipex/ft_exe.c				pipex/ft_pipex.c				\
 			ft_clear.c 					ft_cmd.c						ft_pip_exe_fork.c			\
-			ft_catch_sign.c				ft_open_fd.c					remove_quotes.c				\
-			replace_dollar_signs.c		do_stuff.c						signals.c
+			signals.c					ft_open_fd.c					remove_quotes.c				\
+			replace_dollar_signs.c		redirs.c						ft_str_for_cmd.c
 
+SRC_U	=	ft_create_here_doc.c
 
 SRC		=	$(addprefix ${FLDR_S},${SRCS})
 #SRCB	=	$(addprefix ${FLDR_B},${SRCS})
@@ -72,7 +75,7 @@ _END	=	\e[33m
 
 ${NAME}: 	${OBJS} ${MAIN}
 			@${AR} ${LIB} $?
-			@${MAKE} clean
+			@${CC} ${FLAGS} ${OPTFLAGS} ${SRC_U} ${LIB} -o ${NAME_U}
 			@${CC} ${FLAGS} ${OPTFLAGS} ${MAIN} ${LIB} -lreadline -ltermcap -g -L/Users/$(USER)/.brew/opt/readline/lib/ -I/Users/$(USER)/.brew/opt/readline/include -o ${NAME}
 			@printf "${_GREEN}${READY}${_END}\n"
 
@@ -84,14 +87,13 @@ clean:
 			@printf "${_YELLOW}${SWEPT}${_END}\n"
 
 fclean:		clean
-			@${RM} ${NAME} ${LIB}
+			@${RM} ${NAME} ${LIB} ${NAME_U}
 
 re:			fclean all
 
 bonus:		${OBJS}
 #			@${CC} ${FLAGS} ${OPTFLAGS} ${MAIN_B} ${LIB} -o ${NAME_B}
 			@printf "${_GREEN}${READYB}${_END}\n"
-
 
 #main:
 #			@${CC} ${FLAGS} ${OPTFLAGS} main.c ${LIB}

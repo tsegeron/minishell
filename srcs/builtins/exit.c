@@ -41,12 +41,22 @@ void	b_exit(char **av)
 		ft_putstr_fd("eBash: exit: ", STDERR_FILENO);
 		ft_putstr_fd(av[1], STDERR_FILENO);
 		ft_putendl_fd(": numeric argument required", STDERR_FILENO);
-		exit(EXIT_FAILURE);
+		g_v.ret_status = 255;
+		exit(g_v.ret_status);
 	}
 	else if (get_args_num(av) > 2 && !ft_str_is_num(av[1]))
+	{
 		ft_putendl_fd("eBash: exit: too many arguments", STDERR_FILENO);
+		g_v.ret_status = 1;
+	}
 	else if (get_args_num(av) == 2 && ft_atoi(av[1]) != 0)
-		exit(EXIT_FAILURE);
+	{
+		g_v.ret_status = ft_atoi(av[1]);
+		exit(g_v.ret_status);
+	}
 	else
-		exit(EXIT_SUCCESS);
+	{
+		g_v.ret_status = 0;
+		exit(g_v.ret_status);
+	}
 }

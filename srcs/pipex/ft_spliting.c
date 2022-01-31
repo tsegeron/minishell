@@ -17,9 +17,16 @@ int	ft_spliting_path(char ***split)
 	int		i;
 	t_envp	*envp_step;
 
+	g_v.path_stat = 0;
 	envp_step = g_v.envp;
-	while (ft_strcmp(envp_step->var, "PATH"))
+	while (envp_step && ft_strcmp(envp_step->var, "PATH"))
 		envp_step = envp_step->next;
+	if (!envp_step)
+	{
+		*split = NULL;
+		g_v.path_stat = 1;
+		return (0);
+	}
 	*split = ft_split(envp_step->val, ':');
 	i = -1;
 	while ((*split)[++i])

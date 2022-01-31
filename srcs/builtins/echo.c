@@ -26,11 +26,12 @@ int	b_echo(char **av)
 	}
 	while (av[++i])
 	{
-		ft_putstr_fd(av[i], 1);
+		ft_putstr_fd(av[i], STDOUT_FILENO);
 		if (av[i + 1])
-			write(1, " ", 1);
+			write(g_v.fd_out, " ", 1);
 	}
 	if (!j)
-		write(1, "\n", 1);
+		write(STDOUT_FILENO, "\n", 1);
+	g_v.ret_status = 0;
 	return (EXIT_SUCCESS);
 }

@@ -52,10 +52,10 @@ static int	print_sorted_envp(void)
 	{
 		if (printed == envp_head->order)
 		{
-			ft_putstr_fd("declare -x ", 1);
-			ft_putstr_fd(envp_head->var, 1);
+			ft_putstr_fd("declare -x ", STDOUT_FILENO);
+			ft_putstr_fd(envp_head->var, STDOUT_FILENO);
 			write(STDOUT_FILENO, "=\"", 2);
-			ft_putstr_fd(envp_head->val, 1);
+			ft_putstr_fd(envp_head->val, STDOUT_FILENO);
 			write(STDOUT_FILENO, "\"\n", 2);
 			printed++;
 			envp_head = g_v.envp;

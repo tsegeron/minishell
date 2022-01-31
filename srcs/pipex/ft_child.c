@@ -29,15 +29,7 @@ void	ft_child(char **array, int *i)
 			exit(EXIT_FAILURE);
 		close(g_v.fd[1]);
 	}
-	if (!builtins_handler(g_v.av, i))
-	{
-		*i += 1;
-		exit(EXIT_FAILURE);
-	}
-	else if (ft_exe(g_v.split_path, g_v.split_cmd, g_v.envp_for_exe))
-	{
-		exit(EXIT_FAILURE);
-	}
-//	signal(SIGQUIT, SIG_IGN);
-//	signal(SIGINT, my_sigint);
+	if (builtins_handler(g_v.split_cmd))
+		ft_exe(g_v.split_path, g_v.split_cmd, g_v.envp_for_exe);
+	exit(EXIT_FAILURE);
 }

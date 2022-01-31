@@ -20,40 +20,6 @@ static void	ft_wait_all(int num)
 		wait(NULL);
 }
 
-static	void	*ft_start_prog(char **array, int *i)
-{
-	int		pid;
-
-	pid = fork();
-	if (!pid && execve(array[*i], array + *i + 1, g_v.envp_for_exe) < 0)
-	{
-		perror("eBash");
-		exit(127);
-	}
-	waitpid(pid, &g_v.ret_status, 0);
-	g_v.ret_status = WEXITSTATUS(g_v.ret_status);
-	(*i) = (int)ft_len_array(array);
-	return (NULL);
-}
-
-char	*ft_str_for_cmd(char **array, int *i)
-{
-	char	*str_util;
-
-	str_util = NULL;
-	while (array[*i] && ft_strcmp(array[*i], "|"))
-	{
-		if (!ft_strncmp("./", array[*i], 2))
-			return (ft_start_prog(array, i));
-		str_util = ft_strjoin(str_util, array[*i]);
-		str_util = ft_strjoin(str_util, " ");
-		(*i) += 1;
-	}
-	if (!ft_strcmp(array[*i], "|"))
-		(*i) += 1;
-	return (str_util);
-}
-
 static int	ft_piping(char **array, int *index)
 {
 	char	*str_cmd;
@@ -72,8 +38,9 @@ static int	ft_piping(char **array, int *index)
 
 void	ft_pipex(char **array)
 {
-	int		num_cmd;
-	int		index;
+	int	num_cmd;
+	int	index;
+	char	*str;
 
 	index = 0;
 	num_cmd = 0;
@@ -81,8 +48,26 @@ void	ft_pipex(char **array)
 	{
 		g_v.fd_save = dup(g_v.fd[0]);
 		close(g_v.fd[0]);
+		if (g_v.path_stat)
+		{
+			if (g_v.path_stat == 2)
+				return ;
+			ft_putstr_fd("bash: ", 2);
+			ft_putstr_fd(array[0], 2);
+			ft_putendl_fd(": No such file or directory", 2);
+			return ;
+		}
 		if (ft_piping(array, &index))
 			return ;
+		if (ft_len_array(g_v.split_cmd) > 1)
+		{
+			if (!ft_strcmp(g_v.split_cmd[0], "export"))
+				b_export(g_v.split_cmd);
+			if (!ft_strcmp(g_v.split_cmd[0], "unset"))
+				b_unset(g_v.split_cmd);
+			str = ft_str_for_cmd(array, &index);
+			free(str);
+		}
 		handle_signals_in_proc();
 		g_v.main_pid = fork();
 		if (g_v.main_pid < 0)

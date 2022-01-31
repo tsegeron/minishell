@@ -18,6 +18,7 @@ static void	ft_lst_del_elem(char *del_me)
 	t_envp	*prev;
 
 	envp_ptr = g_v.envp;
+	prev = NULL;
 	if (!envp_ptr->next)
 	{
 		free(envp_ptr->var);
@@ -30,9 +31,12 @@ static void	ft_lst_del_elem(char *del_me)
 		prev = envp_ptr;
 		envp_ptr = envp_ptr->next;
 	}
-	prev->next = envp_ptr->next;
 	free(envp_ptr->var);
 	free(envp_ptr->val);
+	if (!prev)
+		g_v.envp = g_v.envp->next;
+	else
+		prev->next = envp_ptr->next;
 	free(envp_ptr);
 }
 
@@ -40,12 +44,16 @@ static int	check_line(char *check_me)
 {
 	size_t	i;
 
-	i = -1;
-	if (ft_isalpha(check_me[++i]) != 1)
+	i = 0;
+	if (ft_isalpha(check_me[i]) != 1)
 		return (EXIT_FAILURE);
-	while (check_me[++i])
+	i++;
+	while (check_me[i])
+	{
 		if (!ft_isalpha(check_me[i]))
 			return (EXIT_FAILURE);
+		i++;
+	}
 	return (EXIT_SUCCESS);
 }
 
@@ -61,6 +69,8 @@ int	b_unset(char **av)
 	t_envp	*envp_ptr;
 	size_t	i;
 
+//	for (int j = 0; av[j]; j++)
+//		printf("%s\n", av[j]);
 	i = 0;
 	while (av[++i])
 	{

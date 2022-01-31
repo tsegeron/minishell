@@ -22,15 +22,15 @@ int	b_env(char **av)
 	{
 		ft_putstr_fd("env: ", 2);
 		ft_putstr_fd(av[1], 2);
-		ft_putendl_fd(": No such file or directory", 2);
+		ft_putendl_fd(": No such file or directory", STDERR_FILENO);
 		return (EXIT_FAILURE);
 	}
 	envp_head = g_v.envp;
 	while (envp_head)
 	{
-		ft_putstr_fd(envp_head->var, 1);
-		write(1, "=", 1);
-		ft_putendl_fd(envp_head->val, 1);
+		ft_putstr_fd(envp_head->var, STDOUT_FILENO);
+		write(STDOUT_FILENO, "=", 1);
+		ft_putendl_fd(envp_head->val, STDOUT_FILENO);
 		envp_head = envp_head->next;
 	}
 	return (EXIT_SUCCESS);

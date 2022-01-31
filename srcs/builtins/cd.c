@@ -18,6 +18,7 @@ static int	error_return(char *dest)
 	ft_putstr_fd(dest, 2);
 	ft_putstr_fd(": ", 2);
 	perror(NULL);
+	g_v.ret_status = 1;
 	return (EXIT_FAILURE);
 }
 
@@ -28,6 +29,7 @@ static int	go_prev_dir(char **prev_dir)
 	if (!(*prev_dir))
 	{
 		ft_putendl_fd("eBash: cd: OLDPWD not set", 2);
+		g_v.ret_status = 1;
 		return (EXIT_FAILURE);
 	}
 	else
@@ -37,6 +39,7 @@ static int	go_prev_dir(char **prev_dir)
 		free(*prev_dir);
 		*prev_dir = ft_strdup(tmp);
 		free(tmp);
+		g_v.ret_status = 0;
 	}
 	return (EXIT_SUCCESS);
 }
@@ -66,5 +69,6 @@ int	b_cd(char *dest)
 		if (chdir(dest))
 			return (error_return(dest));
 	}
+	g_v.ret_status = 0;
 	return (EXIT_SUCCESS);
 }

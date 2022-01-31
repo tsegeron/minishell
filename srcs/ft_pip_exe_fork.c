@@ -6,7 +6,7 @@
 /*   By: gernesto <gernesto@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 17:21:09 by gernesto          #+#    #+#             */
-/*   Updated: 2022/01/25 20:28:21 by gernesto         ###   ########.fr       */
+/*   Updated: 2022/01/31 00:14:50 by gernesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,8 @@ void	ft_pip_exe_fork(char *str)
 		}
 		ft_create_envp_exe();
 		remove_quotes_and_split(str);
-		if (!g_v.av)
-			return ;
-		ft_pipex(g_v.av);
+		if (g_v.av)
+			ft_pipex(g_v.av);
 		ft_clear_arrray(g_v.av);
 		ft_clear_arrray(g_v.split_path);
 	}

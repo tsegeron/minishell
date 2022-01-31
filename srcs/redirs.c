@@ -7,6 +7,7 @@ typedef struct s_local
 	size_t	count_ptrs;
 	char	*ret;
 	char	*tmp;
+	char	*tmp2;
 }	t_local;
 
 static int	replace_dollar(t_local *q, char c)
@@ -55,10 +56,9 @@ static void	pull_str_from_quotes(t_local *q, char c)
 	free(tmp2);
 }
 
-void	do_mthfoocking_redir_shit(char *check_me, char c, size_t *index)
+void	do_mthfoocking_redir_shit(char *check_me, char c, size_t *index, int *r_s)
 {
 	t_local	q;
-	char	*tmp;
 
 	q.i = 0;
 	q.ret = ft_strdup(check_me);
@@ -71,6 +71,7 @@ void	do_mthfoocking_redir_shit(char *check_me, char c, size_t *index)
 	}
 	q.count_ptrs = q.i;
 	q.tmp = NULL;
+	q.tmp2 = NULL;
 	while (q.ret[q.i] == ' ')
 		q.i++;
 	while (q.ret[q.i] && q.ret[q.i] != ' ')
@@ -81,22 +82,23 @@ void	do_mthfoocking_redir_shit(char *check_me, char c, size_t *index)
 			q.i++;
 		if (!q.ret[q.i] || q.ret[q.i] == ' ')
 		{
-			if (!tmp)
-				tmp = ft_substr(q.ret, q.j, q.i - q.j);
-			q.tmp = ft_strjoin(q.tmp, tmp);
+			q.tmp2 = ft_substr(q.ret, q.j, q.i - q.j);
+			q.tmp = ft_strjoin(q.tmp, q.tmp2);
+			free(q.tmp2);
 			break ;
 		}
 		else if (q.ret[q.i] == '\'' || q.ret[q.i] == '\"')
 			pull_str_from_quotes(&q, q.ret[q.i]);
 	}
-	if (tmp)
-		free(tmp);
 	while (q.ret[q.i] == ' ')
 		q.i++;
 	(*index) += q.i;
 	free(q.ret);
 	if (c == '>')
+	{
+		*r_s = 1;
 		ft_open_fd(q.tmp, 0 + (int )q.count_ptrs);
+	}
 	else
 		ft_open_fd(q.tmp, 2 + (int )q.count_ptrs);
 	free(q.tmp);
