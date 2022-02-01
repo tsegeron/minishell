@@ -53,6 +53,7 @@ t_envp	*ft_lstnew_envp(char *str)
 			list->val = get_new_shlvl(str);
 		else
 			list->val = get_envp_val_name(str, 0);
+		list->next = NULL;
 	}
 	return (list);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   signals.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gernesto <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/01 15:14:26 by gernesto          #+#    #+#             */
+/*   Updated: 2022/02/01 15:14:27 by gernesto         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../hdrs/minishell.h"
 
 void	my_sigint(int signum)
@@ -18,19 +30,14 @@ void	my_sigquit(int signum)
 {
 	(void)signum;
 	printf("Quit: %d\n", signum);
-}
-
-int	eof_exit(void)
-{
-	write(1, "exit\n", 5);
-	return (g_v.ret_status);
+	g_v.ret_status = 131;
 }
 
 void	my_sigint_proc(int signum)
 {
 	if (signum == SIGINT)
 	{
-		write(1, "\n", 1);
+		write(2, "\n", 1);
 		g_v.ret_status = 1;
 	}
 }

@@ -20,10 +20,10 @@ int	b_env(char **av)
 		return ((int )write(STDERR_FILENO, "(null)", 6));
 	if (av[1])
 	{
-		ft_putstr_fd("env: ", 2);
-		ft_putstr_fd(av[1], 2);
+		ft_putstr_fd("env: ", STDERR_FILENO);
+		ft_putstr_fd(av[1], STDERR_FILENO);
 		ft_putendl_fd(": No such file or directory", STDERR_FILENO);
-		return (EXIT_FAILURE);
+		exit(127);
 	}
 	envp_head = g_v.envp;
 	while (envp_head)
@@ -33,5 +33,5 @@ int	b_env(char **av)
 		ft_putendl_fd(envp_head->val, STDOUT_FILENO);
 		envp_head = envp_head->next;
 	}
-	return (EXIT_SUCCESS);
+	exit(EXIT_SUCCESS);
 }

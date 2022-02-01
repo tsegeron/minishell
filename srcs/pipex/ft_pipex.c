@@ -14,25 +14,35 @@
 
 static void	ft_wait_all(int num)
 {
-	waitpid(g_v.main_pid, &g_v.ret_status, 0);
-	g_v.ret_status = WEXITSTATUS(g_v.ret_status);
+	if (waitpid(g_v.main_pid, &g_v.ret_status, 0) > -1)
+		g_v.ret_status = WEXITSTATUS(g_v.ret_status);
 	while (--num > 0)
 		wait(NULL);
 }
 
 static int	ft_piping(char **array, int *index)
 {
-	char	*str_cmd;
-
-	str_cmd = ft_str_for_cmd(array, index);
-	if (!str_cmd)
-		return (1);
-	if (ft_spliting_cmd(&g_v.split_cmd, str_cmd) || \
-			pipe(g_v.fd) < 0)
+	if (ft_str_for_cmd(array, index))
+		return (EXIT_FAILURE);
+	if (pipe(g_v.fd) < 0)
 	{
 		perror("eBash");
-		exit(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	}
+	return (0);
+}
+
+static int	ft_forking(char **array, int *i)
+{
+	handle_signals_in_proc();
+	g_v.main_pid = fork();
+	if (g_v.main_pid < 0)
+	{
+		perror("eBash");
+		return (1);
+	}
+	if (!g_v.main_pid)
+		ft_child(array, i);
 	return (0);
 }
 
@@ -40,7 +50,6 @@ void	ft_pipex(char **array)
 {
 	int	num_cmd;
 	int	index;
-	char	*str;
 
 	index = 0;
 	num_cmd = 0;
@@ -48,35 +57,15 @@ void	ft_pipex(char **array)
 	{
 		g_v.fd_save = dup(g_v.fd[0]);
 		close(g_v.fd[0]);
-		if (g_v.path_stat)
-		{
-			if (g_v.path_stat == 2)
-				return ;
-			ft_putstr_fd("bash: ", 2);
-			ft_putstr_fd(array[0], 2);
-			ft_putendl_fd(": No such file or directory", 2);
-			return ;
-		}
 		if (ft_piping(array, &index))
 			return ;
-		if (ft_len_array(g_v.split_cmd) > 1)
+		if (bultins_handler_main() == EXIT_SUCCESS)
 		{
-			if (!ft_strcmp(g_v.split_cmd[0], "export"))
-				b_export(g_v.split_cmd);
-			if (!ft_strcmp(g_v.split_cmd[0], "unset"))
-				b_unset(g_v.split_cmd);
-			str = ft_str_for_cmd(array, &index);
-			free(str);
+			close(g_v.fd_save);
+			continue ;
 		}
-		handle_signals_in_proc();
-		g_v.main_pid = fork();
-		if (g_v.main_pid < 0)
-		{
-			perror("eBash");
-			exit(EXIT_FAILURE);
-		}
-		if (!g_v.main_pid)
-			ft_child(array, &index);
+		if (ft_forking(array, &index))
+			return ;
 		close(g_v.fd[1]);
 		num_cmd++;
 	}

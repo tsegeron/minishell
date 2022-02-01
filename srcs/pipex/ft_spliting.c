@@ -12,15 +12,23 @@
 
 #include "../../hdrs/minishell.h"
 
+static t_envp	*ft_ptr_on_path(void)
+{
+	t_envp	*envp_step;
+
+	envp_step = g_v.envp;
+	while (envp_step && ft_strcmp(envp_step->var, "PATH"))
+		envp_step = envp_step->next;
+	return (envp_step);
+}
+
 int	ft_spliting_path(char ***split)
 {
 	int		i;
 	t_envp	*envp_step;
 
 	g_v.path_stat = 0;
-	envp_step = g_v.envp;
-	while (envp_step && ft_strcmp(envp_step->var, "PATH"))
-		envp_step = envp_step->next;
+	envp_step = ft_ptr_on_path();
 	if (!envp_step)
 	{
 		*split = NULL;
@@ -39,16 +47,5 @@ int	ft_spliting_path(char ***split)
 			return ((int)(write(2, "Error spliting path.\n", 21)));
 		}
 	}
-	return (0);
-}
-
-int	ft_spliting_cmd(char ***split_cmd, char *cmd)
-{
-	if (*split_cmd)
-		ft_clear_arrray(*split_cmd);
-	*split_cmd = ft_split(cmd, ' ');
-	if (!(*split_cmd))
-		return (1);
-	free(cmd);
 	return (0);
 }

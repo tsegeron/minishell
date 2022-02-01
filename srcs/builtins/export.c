@@ -112,13 +112,14 @@ int	b_export(char **av)
 	if (!av[1])
 		return (print_sorted_envp());
 	i = 0;
-	while (av[++i])
+	while (av[++i] && !g_v.pipe_stat)
 	{
 		if (check_line(av[i]) == 1)
 		{
 			ft_putstr_fd("eBash: export: `", 2);
 			ft_putstr_fd(av[i], 2);
 			ft_putendl_fd("': not a valid identifier", 2);
+			g_v.ret_status = 1;
 		}
 		else if (check_line(av[i]) == 2)
 			continue ;

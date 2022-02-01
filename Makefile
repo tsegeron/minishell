@@ -1,7 +1,6 @@
-
 CC			=	gcc
 #-Wall -Wextra -Werror
-FLAGS		=
+FLAGS		=	-Wall -Wextra -Werror
 #FLAGS_MLX	=	-framework OpenGL -framework AppKit
 OPTFLAGS	=	-O2
 #BON_FLG0	=	-D BONUS=0
@@ -13,7 +12,6 @@ AR			=	ar rcs
 # ------------------------------------------------------------------------------
 
 NAME 	=	minishell
-NAME_U	=	create_here_doc
 LIB		=	minishell.a
 #LIB1	=	libft.a
 #LIB2	=	pipex.a
@@ -29,12 +27,11 @@ MAIN	=	main.c
 #MAIN	=	test.c
 #MAIN_B	=	checker.c
 
-SRCS	=	libfts/ft_strlen.c			libfts/ft_bzero.c				libfts/ft_memmove.c			\
-			libfts/ft_realloc.c			libfts/ft_calloc.c				libfts/ft_strjoin.c			\
+SRCS	=	libfts/ft_strlen.c			libfts/ft_bzero.c				libfts/ft_calloc.c			\
+			libfts/ft_strjoin.c			libfts/ft_itoa_uns.c			libfts/ft_strtrim.c			\
 			libfts/ft_putendl_fd.c		libfts/ft_strcmp.c				libfts/ft_strdup.c			\
 			libfts/ft_strcpy.c			libfts/ft_putstr_fd.c			libfts/ft_atoi.c			\
 			libfts/ft_strchr.c			libfts/ft_substr.c				libfts/ft_split.c			\
-			libfts/get_next_line.c		libfts/ft_itoa_uns.c			libfts/ft_strtrim.c			\
 			libfts/ft_strchr_count.c	libfts/ft_strncmp.c				libfts/ft_strrchr.c			\
 			builtins/0.utils.c			builtins/0.dup_envp_to_list.c	builtins/builtins_handler.c	\
 			builtins/cd.c				builtins/echo.c					builtins/env.c				\
@@ -44,9 +41,8 @@ SRCS	=	libfts/ft_strlen.c			libfts/ft_bzero.c				libfts/ft_memmove.c			\
 			pipex/ft_exe.c				pipex/ft_pipex.c				\
 			ft_clear.c 					ft_cmd.c						ft_pip_exe_fork.c			\
 			signals.c					ft_open_fd.c					remove_quotes.c				\
-			replace_dollar_signs.c		redirs.c						ft_str_for_cmd.c
-
-SRC_U	=	ft_create_here_doc.c
+			replace_dollar_signs.c		redirs.c						ft_str_for_cmd.c			\
+			pipes_stuff.c				remove_quotes_utils.c
 
 SRC		=	$(addprefix ${FLDR_S},${SRCS})
 #SRCB	=	$(addprefix ${FLDR_B},${SRCS})
@@ -62,7 +58,8 @@ READY	=	Minishell is ready
 SWEPT	=	Directory was cleaned
 _GREEN	=	\e[32m
 _YELLOW	=	\e[33m
-_CYAN	=	\e[36m
+_PURPLE	=	\e[0;35m
+_CYAN	=	\e[0;36m
 _END	=	\e[33m
 
 # ------------------------------------------------------------------------------
@@ -75,16 +72,15 @@ _END	=	\e[33m
 
 ${NAME}: 	${OBJS} ${MAIN}
 			@${AR} ${LIB} $?
-			@${CC} ${FLAGS} ${OPTFLAGS} ${SRC_U} ${LIB} -o ${NAME_U}
 			@${CC} ${FLAGS} ${OPTFLAGS} ${MAIN} ${LIB} -lreadline -ltermcap -g -L/Users/$(USER)/.brew/opt/readline/lib/ -I/Users/$(USER)/.brew/opt/readline/include -o ${NAME}
-			@printf "${_GREEN}${READY}${_END}\n"
+			@printf "${_CYAN}${READY}${_END}\n"
 
 
 all:		${NAME}
 
 clean:
 			@${RM} ${OBJS}
-			@printf "${_YELLOW}${SWEPT}${_END}\n"
+			@printf "${_PURPLE}${SWEPT}${_END}\n"
 
 fclean:		clean
 			@${RM} ${NAME} ${LIB} ${NAME_U}

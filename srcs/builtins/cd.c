@@ -44,10 +44,22 @@ static int	go_prev_dir(char **prev_dir)
 	return (EXIT_SUCCESS);
 }
 
+static int	do_else(char **prev_dir, char *dest)
+{
+	if (*prev_dir)
+		free(*prev_dir);
+	*prev_dir = b_pwd(1);
+	if (chdir(dest))
+		return (error_return(dest));
+	return (EXIT_SUCCESS);
+}
+
 int	b_cd(char *dest)
 {
 	static char	*prev_dir;
 
+	if (g_v.pipe_stat)
+		return (EXIT_SUCCESS);
 	if (!dest || !ft_strcmp(dest, "~"))
 	{
 		if (prev_dir)
@@ -62,13 +74,8 @@ int	b_cd(char *dest)
 		b_pwd(0);
 	}
 	else
-	{
-		if (prev_dir)
-			free(prev_dir);
-		prev_dir = b_pwd(1);
-		if (chdir(dest))
-			return (error_return(dest));
-	}
+		if (do_else(&prev_dir, dest))
+			return (EXIT_FAILURE);
 	g_v.ret_status = 0;
 	return (EXIT_SUCCESS);
 }

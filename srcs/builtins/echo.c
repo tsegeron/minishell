@@ -28,7 +28,7 @@ int	b_echo(char **av)
 	{
 		ft_putstr_fd(av[i], STDOUT_FILENO);
 		if (av[i + 1])
-			write(g_v.fd_out, " ", 1);
+			write(STDOUT_FILENO, " ", 1);
 	}
 	if (!j)
 		write(STDOUT_FILENO, "\n", 1);

@@ -12,6 +12,12 @@
 
 #include "hdrs/minishell.h"
 
+static int	eof_exit(void)
+{
+	write(1, "exit\n", 5);
+	return (g_v.ret_status);
+}
+
 int	main(int ac, char **av, char **envp)
 {
 	char	*str;
@@ -29,7 +35,7 @@ int	main(int ac, char **av, char **envp)
 	{
 		handle_signals();
 		wait(NULL);
-		str = readline("eBash_$ ");
+		str = readline(CYAN"eBash_$ "END);
 		if (!str)
 			return (eof_exit());
 		if (str[0])

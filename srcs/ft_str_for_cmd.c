@@ -1,50 +1,53 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_str_for_cmd.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gernesto <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/01 15:15:22 by gernesto          #+#    #+#             */
+/*   Updated: 2022/02/01 15:15:23 by gernesto         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../hdrs/minishell.h"
 
-static	void	*ft_start_prog(char **array, int *i)
+static int	ft_count_char_ptr(char **array, int *i)
 {
-	int		pid;
+	int	num;
 
-	pid = fork();
-	if (!pid)
-	{
-		if (execve(array[*i], array + *i, g_v.envp_for_exe) < 0)
-		{
-			perror("eBash");
-			exit(127);
-		}
-	}
-	waitpid(pid, &g_v.ret_status, 0);
-	g_v.ret_status = WEXITSTATUS(g_v.ret_status);
-	(*i) = (int)ft_len_array(array);
-	return (NULL);
+	num = *i;
+	while (array[*i] && ft_strcmp(array[*i], "|"))
+		(*i)++;
+	g_v.split_cmd = ft_calloc(*i - num + 1, sizeof(char *));
+	return (num);
 }
 
-char	*ft_str_for_cmd(char **array, int *i)
+int	ft_str_for_cmd(char **array, int *i)
 {
-	char	*str_util;
-	char	*str_1;
-	char	*str_2;
+	int	save;
+	int	j;
 
-	str_util = NULL;
-	while (array[*i] && ft_strcmp(array[*i], "|"))
+	if (g_v.split_cmd)
+		ft_clear_arrray(g_v.split_cmd);
+	save = ft_count_char_ptr(array, i);
+	if (!g_v.split_cmd)
+		return (1);
+	j = 0;
+	while (save < *i)
 	{
-		if (!ft_strncmp("./", array[*i], 2))
-			return (ft_start_prog(array, i));
-		else if (!ft_strncmp("~", array[*i], 1))
+		g_v.split_cmd[j] = ft_strdup(array[save++]);
+		if (!g_v.split_cmd[j])
 		{
-			str_1 = ft_strdup(ft_strrchr(array[*i], '~') + 1);
-			str_2 = ft_strdup(getenv("HOME"));
-			free(array[*i]);
-			array[*i] = ft_strjoin(str_2, str_1);
-			if (!array[*i])
-				return (NULL);
-			return (ft_start_prog(array, i));
+			ft_clear_arrray(g_v.split_cmd);
+			return (1);
 		}
-		str_util = ft_strjoin(str_util, array[*i]);
-		str_util = ft_strjoin(str_util, " ");
-		(*i) += 1;
+		j++;
 	}
 	if (!ft_strcmp(array[*i], "|"))
+	{
 		(*i) += 1;
-	return (str_util);
+		g_v.pipe_stat = 1;
+	}
+	return (0);
 }

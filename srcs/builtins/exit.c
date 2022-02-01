@@ -35,14 +35,15 @@ static int	ft_str_is_num(char *str)
 
 void	b_exit(char **av)
 {
+	if (g_v.pipe_stat)
+		return ;
 	ft_putendl_fd("exit", STDERR_FILENO);
 	if (get_args_num(av) > 1 && ft_str_is_num(av[1]))
 	{
 		ft_putstr_fd("eBash: exit: ", STDERR_FILENO);
 		ft_putstr_fd(av[1], STDERR_FILENO);
 		ft_putendl_fd(": numeric argument required", STDERR_FILENO);
-		g_v.ret_status = 255;
-		exit(g_v.ret_status);
+		exit(255);
 	}
 	else if (get_args_num(av) > 2 && !ft_str_is_num(av[1]))
 	{
@@ -50,13 +51,7 @@ void	b_exit(char **av)
 		g_v.ret_status = 1;
 	}
 	else if (get_args_num(av) == 2 && ft_atoi(av[1]) != 0)
-	{
-		g_v.ret_status = ft_atoi(av[1]);
-		exit(g_v.ret_status);
-	}
+		exit(ft_atoi(av[1]));
 	else
-	{
-		g_v.ret_status = 0;
-		exit(g_v.ret_status);
-	}
+		exit(EXIT_SUCCESS);
 }

@@ -20,6 +20,8 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	i = -1;
 	j = 0;
+	if (!s2)
+		return (NULL);
 	if (!s1)
 	{
 		s1 = (char *) malloc (1);

@@ -62,6 +62,7 @@ void	print_error(char *str)
 	ft_putstr_fd("eBash: unset: `", 2);
 	ft_putstr_fd(str, 2);
 	ft_putendl_fd("': not a valid identifier", 2);
+	g_v.ret_status = 1;
 }
 
 int	b_unset(char **av)
@@ -69,10 +70,8 @@ int	b_unset(char **av)
 	t_envp	*envp_ptr;
 	size_t	i;
 
-//	for (int j = 0; av[j]; j++)
-//		printf("%s\n", av[j]);
 	i = 0;
-	while (av[++i])
+	while (av[++i] && !g_v.pipe_stat)
 	{
 		envp_ptr = g_v.envp;
 		if (!envp_ptr)
@@ -87,7 +86,7 @@ int	b_unset(char **av)
 			if (!ft_strcmp(av[i], envp_ptr->var))
 			{
 				ft_lst_del_elem(envp_ptr->var);
-				continue ;
+				break ;
 			}
 			envp_ptr = envp_ptr->next;
 		}
