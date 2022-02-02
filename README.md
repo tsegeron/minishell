@@ -32,7 +32,7 @@ Run it with:
 
 ### Available options
 
-Minishell runs executables from an absolute, relative or environment PATH (``/bin/ls`` or ``ls`` or ``~/../../bin/ls``), including arguments or options. ``'`` and ``"`` work the same as bash, except for multiline commands.
+Minishell runs executables from an absolute, relative or environment PATH (``ls`` or ``/bin/ls`` or ``~/../../bin/ls``), including arguments or options. ``'`` and ``"`` work the same as bash, except for multiline commands.
 
 You can use redirections ``>`` ``>>`` ``<`` ``<<`` as well as pipes ``|`` and mixing them up together, however you'd like.
 
