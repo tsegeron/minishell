@@ -38,3 +38,11 @@ A few of the functions are "built-in", meaning we don't call the executable, we 
 ### Credit
 
 This two-person project was done with [mseastar](https://github.com/mseastar).
+
+
+### Workflow
+*(In russian, sry)*
+
+<p align="center">
+  <img src="https://github.com/tsegeron/Images/blob/master/workflow.png" width="100%" />
+</p>
