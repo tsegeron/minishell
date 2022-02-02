@@ -1,7 +1,7 @@
 # minishell
 As beautiful as a shell
 
-## Final grade : 100/125
+## Final grade : /125
 
 Mandatory part : /100
 
@@ -12,7 +12,7 @@ Bonus : 0/25
 
 Using ``make`` will create the ``minishell`` executable.
 
-Simply run it with :
+Run it with :
 
 ```
 ./minishell
