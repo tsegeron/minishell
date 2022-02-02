@@ -1,7 +1,9 @@
-# minishell
-As beautiful as a shell
+# Minishell
+*As beautiful as a shell*
 
-## Final grade : 100/125
+
+
+### Final grade : 100/125
 
 Mandatory part : 100/100
 
@@ -46,7 +48,7 @@ A few of the functions are "built-in", meaning we don't call the executable, we 
 
 *******
 
-### Credit
+### Credits
 
 This two-person project was done with [mseastar](https://github.com/mseastar).
 
