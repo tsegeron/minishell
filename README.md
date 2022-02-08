@@ -36,7 +36,7 @@ Run it with:
 
 Minishell runs executables from an absolute, relative or environment PATH (``ls`` or ``/bin/ls`` or ``~/../../bin/ls``), including arguments or options. ``'`` and ``"`` work the same as bash, except for multiline commands.
 
-Our minishell also can run itself or other executables, shlvl would be change accordingly.
+Our minishell also can run itself or other executables, ``SHLVL`` would be change accordingly.
 
 You can use redirections ``>`` ``>>`` ``<`` ``<<`` as well as pipes ``|`` and mixing them up together, however you'd like.
 
