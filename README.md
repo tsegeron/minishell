@@ -27,8 +27,8 @@ Run it with:
 ./minishell
 ```
 * Running with arguments will throw you an error, like bash. 
-* In addition #1, if any question about the usage occurs, take bash as a reference. 
-* In addition #2, if you find any mistake, feel free to inform me or [mseastar](https://github.com/mseastar), thx.
+* In addition №1, if any question about the usage occurs, take bash as a reference. 
+* In addition №2, if you find any mistake, feel free to inform me or [mseastar](https://github.com/mseastar), thx.
 
 *******
 
