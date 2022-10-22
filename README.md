@@ -57,7 +57,7 @@ This two-person project was done with [mseastar](https://github.com/mseastar).
 *******
 
 ### Workflow
-*(In russian, sry)*
+*(In russian)*
 
 <p align="center">
   <img src="https://github.com/tsegeron/minishell/blob/main/examples/workflow.png" width="100%" />
